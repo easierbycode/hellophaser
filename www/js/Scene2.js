@@ -21,6 +21,20 @@ class Scene2 extends Phaser.Scene {
         this.background = this.add.tileSprite(0, 0, config.width, config.height, 'background');
         this.background.setOrigin(0, 0);
 
+        const graphics = this.add.graphics();
+        graphics.fillStyle(0x000000, 1);
+        graphics.beginPath();
+        graphics.moveTo(0, 0);
+        graphics.lineTo(config.width, 0);
+        graphics.lineTo(config.width, 20);
+        graphics.lineTo(0, 20);
+        graphics.lineTo(0, 0);
+        graphics.closePath();
+        graphics.fillPath();
+        
+        this.score = 0;
+        this.scoreLabel = this.add.bitmapText(10, 5, 'pixelFont', 'SCORE ', 16);
+
         this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'ship');
         this.ship2 = this.add.sprite(config.width/2, config.height/2, 'ship2');
         this.ship3 = this.add.sprite(config.width/2 + 50, config.height/2, 'ship3');
@@ -101,9 +115,20 @@ class Scene2 extends Phaser.Scene {
         }
     }
 
+    zeroPad(number, size) {
+        var stringNumber = String(number);
+        while (stringNumber.length < (size || 2)) {
+            stringNumber = `0${stringNumber}`;
+        }
+        return stringNumber;
+    }
+    
     hitEnemy(projectile, enemy) {
         projectile.destroy();
         this.resetShipPos(enemy);
+        this.score += 15;
+        var scoreFormatted = this.zeroPad(this.score, 6);
+        this.scoreLabel.text = `SCORE ${scoreFormatted}`;
     }
 
     hurtPlayer(player, enemy) {
