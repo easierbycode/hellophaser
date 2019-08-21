@@ -2,5 +2,5 @@ hooks
 node_modules
 platforms
 plugins
-www/.cache
+www
 .cache
