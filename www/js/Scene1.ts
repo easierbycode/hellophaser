@@ -1,46 +1,47 @@
-class Scene1 extends Phaser.Scene {
+export class Scene1 extends Phaser.Scene {
     constructor() {
         super('bootGame');  // bootGame will be the identifier for this scene
     }
 
     preload() {
-        this.load.image('background', './assets/images/background.png');
+        // this.load.image('background', './assets/images/background.png');
+        this.load.image('background', require('../assets/images/background.png'));
 
-        this.load.spritesheet('ship', './assets/spritesheets/ship.png', {
+        this.load.spritesheet('ship', require('../assets/spritesheets/ship.png'), {
             frameWidth: 16,
             frameHeight: 16
         });
-        this.load.spritesheet('ship2', './assets/spritesheets/ship2.png', {
+        this.load.spritesheet('ship2', require('../assets/spritesheets/ship2.png'), {
             frameWidth: 32,
             frameHeight: 16
         });
-        this.load.spritesheet('ship3', './assets/spritesheets/ship3.png', {
+        this.load.spritesheet('ship3', require('../assets/spritesheets/ship3.png'), {
             frameWidth: 32,
             frameHeight: 32
         });
-        this.load.spritesheet('explosion', './assets/spritesheets/explosion.png', {
+        this.load.spritesheet('explosion', require('../assets/spritesheets/explosion.png'), {
             frameWidth: 16,
             frameHeight: 16
         });
-        this.load.spritesheet('power-up', './assets/spritesheets/power-up.png', {
+        this.load.spritesheet('power-up', require('../assets/spritesheets/power-up.png'), {
             frameWidth: 16,
             frameHeight: 16
         });
-        this.load.spritesheet('player', './assets/spritesheets/player.png', {
+        this.load.spritesheet('player', require('../assets/spritesheets/player.png'), {
             frameWidth: 16,
             frameHeight: 24
         });
-        this.load.spritesheet('beam', './assets/spritesheets/beam.png', {
+        this.load.spritesheet('beam', require('../assets/spritesheets/beam.png'), {
             frameWidth: 16,
             frameHeight: 16
         });
 
-        this.load.bitmapFont('pixelFont', './assets/font/font.png', './assets/font/font.xml');
+        this.load.bitmapFont('pixelFont', require('../assets/font/font.png'), require('../assets/font/font.xml'));
 
-        this.load.audio('audio_beam', ['./assets/sounds/beam.ogg', './assets/sounds/beam.mp3']);
-        this.load.audio('audio_explosion', ['./assets/sounds/explosion.ogg', './assets/sounds/explosion.mp3']);
-        this.load.audio('audio_pickup', ['./assets/sounds/pickup.ogg', './assets/sounds/pickup.mp3']);
-        this.load.audio('music', ['./assets/sounds/sci-fi_platformer12.ogg', './assets/sounds/sci-fi_platformer12.ogg']);
+        this.load.audio('audio_beam', [require('../assets/sounds/beam.ogg'), require('../assets/sounds/beam.mp3')]);
+        this.load.audio('audio_explosion', [require('../assets/sounds/explosion.ogg'), require('../assets/sounds/explosion.mp3')]);
+        this.load.audio('audio_pickup', [require('../assets/sounds/pickup.ogg'), require('../assets/sounds/pickup.mp3')]);
+        this.load.audio('music', [require('../assets/sounds/sci-fi_platformer12.ogg'), require('../assets/sounds/sci-fi_platformer12.ogg')]);
     }
 
     create() {

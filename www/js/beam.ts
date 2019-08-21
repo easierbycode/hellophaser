@@ -1,5 +1,5 @@
 
-class Beam extends Phaser.GameObjects.Sprite {
+export class Beam extends Phaser.GameObjects.Sprite {
     constructor(scene) {
         let {x, y} = scene.player;
         y -= 16;

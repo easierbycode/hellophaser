@@ -1,3 +1,6 @@
+import {config} from './config.ts';
+
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -16,28 +19,6 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var gameSettings = {
-    playerSpeed: 200
-};
-
-var config = {
-    width: 256,
-    height: 272,
-    scene: [Scene1, Scene2],
-    pixelArt: true,
-    scale: {
-        mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH
-    },
-    physics: {
-        default: 'arcade',
-        arcade: {
-            debug: false
-        }
-    }
-};
-
-
 var game;
 
 var app = {

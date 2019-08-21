@@ -1,4 +1,10 @@
-class Scene2 extends Phaser.Scene {
+import {Beam} from './beam.ts';
+import {config} from './config.ts';
+import {gameSettings} from './game-settings.ts';
+import {Explosion} from './explosion.ts'
+
+
+export class Scene2 extends Phaser.Scene {
     constructor() {
         super('playGame'); 
     }
@@ -80,7 +86,7 @@ class Scene2 extends Phaser.Scene {
         for (var i = 0; i < maxObjects; i++) {
             var powerUp = this.physics.add.sprite(16, 16, 'power-up');
             this.powerUps.add(powerUp);
-            powerUp.setRandomPosition(0, 0, game.config.width, game.config.height);
+            powerUp.setRandomPosition(0, 0, this.game.config.width, this.game.config.height);
 
             if (Math.random() > 0.5) {
                 powerUp.play('red');
