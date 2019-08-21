@@ -72,13 +72,6 @@ export class Scene2 extends Phaser.Scene {
         this.ship2.play('ship2_anim');
         this.ship3.play('ship3_anim');
 
-        // enable ship to receive click input
-        this.ship1.setInteractive();
-        this.ship2.setInteractive();
-        this.ship3.setInteractive();
-
-        this.input.on('gameobjectdown', this.destroyShip, this);
-
         this.powerUps = this.physics.add.group();
 
         var maxObjects = 4;
@@ -223,14 +216,6 @@ export class Scene2 extends Phaser.Scene {
         } else if (this.cursorKeys.down.isDown) {
             this.player.setVelocityY(gameSettings.playerSpeed);
         }
-    }
-    
-    // pointer - mouse pointer
-    // gameObject - the clicked object (in this case the ship)
-    destroyShip(pointer, gameObject) {
-        // switch ship texture with the explosion spritesheet
-        gameObject.setTexture('explosion');
-        gameObject.play('explode');
     }
 
     moveShip(ship, speed) {
