@@ -5,6 +5,7 @@
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
   "scripts": {
+    "build": "parcel build www/index.html --out-dir docs --public-url /hellophaser/",
     "dev": "parcel www/index.html --out-dir docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,7 +18,8 @@
     "cordova-android": "^8.0.0"
   },
   "devDependencies": {
-    "cordova-plugin-whitelist": "^1.3.4"
+    "cordova-plugin-whitelist": "^1.3.4",
+    "cssnano": "^4.1.10"
   },
   "cordova": {
     "plugins": {
