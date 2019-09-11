@@ -99,6 +99,8 @@ export class Scene2 extends Phaser.Scene {
 
         this.spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
+        this.nextShotAt = 0;
+        
         // group to hold all our projectiles
         this.projectiles = this.add.group();
 
@@ -207,8 +209,10 @@ export class Scene2 extends Phaser.Scene {
     }
 
     shootBeam() {
+        if (this.nextShotAt > this.game.getTime())  return;
         var beam = new Beam(this);
         this.beamSound.play();
+        this.nextShotAt = this.game.getTime() + 100;
     }
     
     movePlayerManager() {
