@@ -125,16 +125,7 @@ export class Scene2 extends Phaser.Scene {
 
         this.movePlayerManager();
 
-        if (this.input.activePointer.isDown) {
-            this.player.x = this.input.activePointer.x;
-            // slighthly above finger position
-            this.player.y = this.input.activePointer.y - 15;
-
-
-            if (this.player.active) {
-                this.shootBeam();
-            }
-        } else if (Phaser.Input.Keyboard.JustDown(this.spacebar)) {
+        if (this.input.activePointer.isDown || Phaser.Input.Keyboard.JustDown(this.spacebar)) {
             if (this.player.active) {
                 this.shootBeam();
             }
@@ -217,6 +208,14 @@ export class Scene2 extends Phaser.Scene {
     
     movePlayerManager() {
         this.player.setVelocity(0);
+
+        if (this.input.activePointer.isDown) {
+            this.player.x = this.input.activePointer.x;
+            // slighthly above finger position
+            this.player.y = this.input.activePointer.y - 15;
+
+            return;
+        }
 
         if (this.cursorKeys.left.isDown) {
             this.player.setVelocityX(-gameSettings.playerSpeed);
