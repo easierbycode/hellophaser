@@ -157,10 +157,11 @@ export class Scene2 extends Phaser.Scene {
     }
 
     hurtPlayer(player, enemy) {
-        navigator.vibrate(Infinity);
         this.resetShipPos(enemy);
 
         if (this.player.alpha < 1)  return;
+
+        navigator.vibrate(Infinity);
 
         var explosion = new Explosion(this, player.x, player.y);
 
