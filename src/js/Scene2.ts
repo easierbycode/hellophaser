@@ -157,6 +157,7 @@ export class Scene2 extends Phaser.Scene {
     }
 
     hurtPlayer(player, enemy) {
+        this.navigator.vibrate(Infinity);
         this.resetShipPos(enemy);
 
         if (this.player.alpha < 1)  return;
@@ -168,7 +169,11 @@ export class Scene2 extends Phaser.Scene {
         // this.resetPlayer();
         this.time.addEvent({
             delay: 1000,
-            callback: this.resetPlayer,
+            // callback: this.resetPlayer,
+            callback: () => {
+                this.navigator.vibrate(0);
+                this.resetPlayer();
+            },
             callbackScope: this,
             loop: false
         });
