@@ -252,8 +252,11 @@ export class Scene2 extends Phaser.Scene {
     // Source @robmuh  on html5gamedevs.com
     // http://www.html5gamedevs.com/topic/36607-scaling-the-canvas-for-pixel-art/?do=findComment&comment=209927
     resize() {
-        var canvas = this.game.canvas, width = window.innerWidth, height = window.innerHeight;
-        var wratio = width / height, ratio = canvas.width / canvas.height;
+        var canvas = this.game.canvas,
+            width = window.innerWidth,
+            height = window.innerHeight;
+        var wratio = width / height,
+            ratio = canvas.width / canvas.height;
 
         if (wratio < ratio) {
             canvas.style.width = width + "px";
