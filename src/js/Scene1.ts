@@ -41,7 +41,7 @@ export class Scene1 extends Phaser.Scene {
         this.load.audio('audio_beam', [require('../assets/sounds/beam.ogg'), require('../assets/sounds/beam.mp3')]);
         this.load.audio('audio_explosion', [require('../assets/sounds/explosion.ogg'), require('../assets/sounds/explosion.mp3')]);
         this.load.audio('audio_pickup', [require('../assets/sounds/pickup.ogg'), require('../assets/sounds/pickup.mp3')]);
-        this.load.audio('music', [require('../assets/sounds/sci-fi_platformer12.ogg'), require('../assets/sounds/sci-fi_platformer12.ogg')]);
+        this.load.audio('music', [require('../assets/sounds/sci-fi_platformer12.ogg'), require('../assets/sounds/sci-fi_platformer12.mp3')]);
     }
 
     create() {
