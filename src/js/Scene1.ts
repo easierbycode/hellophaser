@@ -45,8 +45,8 @@ export class Scene1 extends Phaser.Scene {
     }
 
     create() {
-        this.add.text(20, 20, 'Loading game...');
-        this.scene.start('menu');
+        // this.add.text(20, 20, 'Loading game...');
+        // this.scene.start('menu');
 
         this.anims.create({
             key: 'ship1_anim',  // ID for this animation

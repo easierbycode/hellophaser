@@ -1,4 +1,5 @@
 import {config} from './config';
+import {Scene1} from './Scene1';
 import {ScrollingBackground} from './scrolling-background';
 
 
@@ -6,9 +7,11 @@ export class Menu extends Phaser.Scene {
 
     constructor() {
         super('menu');
+        this.scene1 = new Scene1();
     }
 
     public preload(): void {
+        this.scene1.preload.call(this);
         this.load.image('startBtn', require('../assets/images/start-btn.png'));
         this.load.image('optionsBtn', require('../assets/images/options-btn.png'));
         this.load.image('starBg0', require('../assets/images/star-bg-0.png'));
@@ -16,6 +19,8 @@ export class Menu extends Phaser.Scene {
     }
 
     public create(): void {
+        this.scene1.create.call(this);
+
         // start button
         const startBtn = this.add.sprite(config.width/2, config.height/2, 'startBtn');
         startBtn.setInteractive();
