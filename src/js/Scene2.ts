@@ -2,6 +2,7 @@ import {Beam} from './beam.ts';
 import {config} from './config.ts';
 import {gameSettings} from './game-settings.ts';
 import {Explosion} from './explosion.ts'
+import Phaser from 'phaser';
 
 
 export class Scene2 extends Phaser.Scene {
@@ -45,9 +46,7 @@ export class Scene2 extends Phaser.Scene {
         this.explosionSound = this.sound.add('audio_explosion');
         this.pickupSound = this.sound.add('audio_pickup');
 
-        this.music = this.sound.add('music');
-
-        var musicConfig = {
+        var musicConfig: Phaser.Types.Sound.SoundConfig = {
             mute: false,
             volume: 1,
             rate: 1,
@@ -57,7 +56,9 @@ export class Scene2 extends Phaser.Scene {
             delay: 0
         };
 
-        this.music.play(musicConfig);
+        this.music = this.sound.add('music', musicConfig);
+
+        this.music.play();
 
         this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'ship');
         this.ship2 = this.add.sprite(config.width/2, config.height/2, 'ship2');
