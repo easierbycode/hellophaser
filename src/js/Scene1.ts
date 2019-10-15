@@ -1,11 +1,16 @@
+import Phaser from 'phaser';
+
+
 export class Scene1 extends Phaser.Scene {
     constructor() {
         super('bootGame');  // bootGame will be the identifier for this scene
     }
 
     preload() {
+        this.load.image('asteroid', require('../assets/images/asteroid-face.png'));
         // this.load.image('background', './assets/images/background.png');
         this.load.image('background', require('../assets/images/background.png'));
+        this.load.image('red', require('../assets/images/red.png'));
 
         this.load.spritesheet('ship', require('../assets/spritesheets/ship.png'), {
             frameWidth: 16,
