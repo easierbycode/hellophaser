@@ -1,0 +1,8 @@
+NOW
+===
+- asteroid baddie
+  - fire trail from phaser 3 quick start
+
+
+LATER
+=====
