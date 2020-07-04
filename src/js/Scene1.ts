@@ -20,9 +20,13 @@ export class Scene1 extends Phaser.Scene {
             frameWidth: 15,
             frameHeight: 10
         });
-        this.load.spritesheet('ship2', require('../assets/spritesheets/ship2.png'), {
-            frameWidth: 32,
-            frameHeight: 16
+        // this.load.spritesheet('ship2', require('../assets/spritesheets/ship2.png'), {
+        //     frameWidth: 32,
+        //     frameHeight: 16
+        // });
+        this.load.spritesheet('ship2', require('../assets/spritesheets/asteroid-face.png'), {
+            frameWidth: 33,
+            frameHeight: 32
         });
         // this.load.spritesheet('ship3', require('../assets/spritesheets/ship3.png'), {
         //     frameWidth: 32,
