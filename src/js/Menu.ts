@@ -13,7 +13,8 @@ export class Menu extends Phaser.Scene {
     public preload(): void {
         this.scene1.preload.call(this);
         this.load.image('startBtn', require('../assets/images/start-btn.png'));
-        this.load.image('optionsBtn', require('../assets/images/options-btn.png'));
+        // this.load.image('optionsBtn', require('../assets/images/options-btn.png'));
+        this.load.image('optionsBtn', require('../assets/images/RonaGun-logo.png'));
         this.load.image('starBg0', require('../assets/images/star-bg-0.png'));
         this.load.image('starBg1', require('../assets/images/star-bg-1.png'));
     }
@@ -29,6 +30,17 @@ export class Menu extends Phaser.Scene {
         // options button
         let {x,y} = startBtn.getBottomCenter();
         const optionsBtn = this.add.sprite(x, y + startBtn.height, 'optionsBtn');
+
+        //DRJ
+
+        optionsBtn.setScale( 0.5 )
+
+        console.log( 'startBtn.width: ', startBtn.width )
+        console.log( 'startBtn.height: ', startBtn.height )
+        console.log( 'startBtn x: ', x )
+        console.log( 'startBtn y: ', y )
+
+        const virusIcon = this.add.sprite( x - startBtn.width, y - startBtn.height/2, 'ship3', 0 )
 
         this.backgrounds = [];
         for (var i = 0; i < 3; i++) {

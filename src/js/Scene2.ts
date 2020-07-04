@@ -38,6 +38,9 @@ export class Scene2 extends Phaser.Scene {
         graphics.lineTo(0, 0);
         graphics.closePath();
         graphics.fillPath();
+
+        console.log( 'graphics' )
+        console.log( graphics )
         
         this.score = 0;
         this.scoreLabel = this.add.bitmapText(10, 5, 'pixelFont', 'SCORE ', 16);
