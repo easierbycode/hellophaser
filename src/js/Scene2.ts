@@ -27,20 +27,6 @@ export class Scene2 extends Phaser.Scene {
 
         this.background = this.add.tileSprite(0, 0, config.width, config.height, 'background');
         this.background.setOrigin(0, 0);
-
-        const graphics = this.add.graphics();
-        graphics.fillStyle(0x000000, 1);
-        graphics.beginPath();
-        graphics.moveTo(0, 0);
-        graphics.lineTo(config.width, 0);
-        graphics.lineTo(config.width, 20);
-        graphics.lineTo(0, 20);
-        graphics.lineTo(0, 0);
-        graphics.closePath();
-        graphics.fillPath();
-
-        console.log( 'graphics' )
-        console.log( graphics )
         
         this.score = 0;
         this.scoreLabel = this.add.bitmapText(10, 5, 'pixelFont', 'SCORE ', 16);
