@@ -68,6 +68,10 @@ export class Scene2 extends Phaser.Scene {
 
         for (var i = 0; i < maxObjects; i++) {
             var powerUp = this.physics.add.sprite(16, 16, 'power-up');
+            
+            // DRJ
+            powerUp.setScale( 0.25 )
+
             this.powerUps.add(powerUp);
             powerUp.setRandomPosition(0, 0, this.game.config.width, this.game.config.height);
 

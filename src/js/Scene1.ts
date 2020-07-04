@@ -7,7 +7,7 @@ export class Scene1 extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('asteroid', require('../assets/images/asteroid-face.png'));
+        // this.load.image('asteroid', require('../assets/images/asteroid-face.png'));
         // this.load.image('background', './assets/images/background.png');
         this.load.image('background', require('../assets/images/background.png'));
         this.load.image('red', require('../assets/images/red.png'));
@@ -40,9 +40,13 @@ export class Scene1 extends Phaser.Scene {
             frameWidth: 16,
             frameHeight: 16
         });
-        this.load.spritesheet('power-up', require('../assets/spritesheets/power-up.png'), {
-            frameWidth: 16,
-            frameHeight: 16
+        // this.load.spritesheet('power-up', require('../assets/spritesheets/power-up.png'), {
+        //     frameWidth: 16,
+        //     frameHeight: 16
+        // });
+        this.load.spritesheet('power-up', require('../assets/spritesheets/SmilEye.png'), {
+            frameWidth: 92,
+            frameHeight: 82
         });
         this.load.spritesheet('player', require('../assets/spritesheets/player.png'), {
             frameWidth: 16,
@@ -121,10 +125,16 @@ export class Scene1 extends Phaser.Scene {
             repeat: -1
         });
 
+        // this.anims.create({
+        //     key: 'beam_anim',
+        //     frames: this.anims.generateFrameNumbers('beam'),
+        //     frameRate: 20,
+        //     repeat: -1
+        // });
         this.anims.create({
             key: 'beam_anim',
             frames: this.anims.generateFrameNumbers('beam'),
-            frameRate: 20,
+            frameRate: 8,
             repeat: -1
         });
     }
