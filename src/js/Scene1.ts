@@ -119,7 +119,7 @@ export class Scene1 extends Phaser.Scene {
             key: 'red',
             frames: this.anims.generateFrameNumbers('power-up', {
                 start: 0,
-                end: 1
+                end: 19
             }),
             frameRate: 20,
             repeat: -1
@@ -128,12 +128,13 @@ export class Scene1 extends Phaser.Scene {
         this.anims.create({
             key: 'gray',
             frames: this.anims.generateFrameNumbers('power-up', {
-                start: 2,
-                end: 3
+                start: 19,
+                end: 0
             }),
             frameRate: 20,
             repeat: -1
         });
+
 
         this.anims.create({
             key: 'thrust',
