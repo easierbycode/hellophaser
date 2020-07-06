@@ -121,7 +121,7 @@ export class Scene1 extends Phaser.Scene {
                 start: 0,
                 end: 19
             }),
-            frameRate: 20,
+            frameRate: 8,
             repeat: -1
         });
 
@@ -131,7 +131,7 @@ export class Scene1 extends Phaser.Scene {
                 start: 19,
                 end: 0
             }),
-            frameRate: 20,
+            frameRate: 8,
             repeat: -1
         });
 
