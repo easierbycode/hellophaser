@@ -63,9 +63,15 @@ export class Scene1 extends Phaser.Scene {
             frameWidth: 16,
             frameHeight: 24
         });
-        this.load.spritesheet('beam', require('../assets/spritesheets/beam.png'), {
-            frameWidth: 16,
-            frameHeight: 16
+
+        // DRJ
+        // this.load.spritesheet('beam', require('../assets/spritesheets/beam.png'), {
+        //     frameWidth: 16,
+        //     frameHeight: 16
+        // });
+        this.load.spritesheet('beam', require('../assets/spritesheets/sperm.png'), {
+            frameWidth: 6,
+            frameHeight: 22
         });
 
         this.load.bitmapFont('pixelFont', require('../assets/font/font.png'), require('../assets/font/font.xml'));
@@ -136,16 +142,10 @@ export class Scene1 extends Phaser.Scene {
             repeat: -1
         });
 
-        // this.anims.create({
-        //     key: 'beam_anim',
-        //     frames: this.anims.generateFrameNumbers('beam'),
-        //     frameRate: 20,
-        //     repeat: -1
-        // });
         this.anims.create({
             key: 'beam_anim',
             frames: this.anims.generateFrameNumbers('beam'),
-            frameRate: 8,
+            frameRate: 20,
             repeat: -1
         });
     }
