@@ -9,7 +9,11 @@ export class Scene1 extends Phaser.Scene {
     preload() {
         // this.load.image('asteroid', require('../assets/images/asteroid-face.png'));
         // this.load.image('background', './assets/images/background.png');
-        this.load.image('background', require('../assets/images/background.png'));
+        // this.load.image('background', require('../assets/images/background.png'));
+
+        // DRJ
+        this.load.image('background', require('../assets/images/everwing-space-bg.png'));
+
         this.load.image('red', require('../assets/images/red.png'));
 
         // this.load.spritesheet('ship', require('../assets/spritesheets/ship.png'), {
@@ -20,6 +24,7 @@ export class Scene1 extends Phaser.Scene {
             frameWidth: 15,
             frameHeight: 10
         });
+        
         // this.load.spritesheet('ship2', require('../assets/spritesheets/ship2.png'), {
         //     frameWidth: 32,
         //     frameHeight: 16
@@ -36,9 +41,15 @@ export class Scene1 extends Phaser.Scene {
             frameWidth: 29,
             frameHeight: 28
         });
-        this.load.spritesheet('explosion', require('../assets/spritesheets/explosion.png'), {
-            frameWidth: 16,
-            frameHeight: 16
+        
+        // DRJ
+        // this.load.spritesheet('explosion', require('../assets/spritesheets/explosion.png'), {
+        //     frameWidth: 16,
+        //     frameHeight: 16
+        // });
+        this.load.spritesheet('explosion', require('../assets/spritesheets/purple-sparks.png'), {
+            frameWidth: 204,
+            frameHeight: 164
         });
         // this.load.spritesheet('power-up', require('../assets/spritesheets/power-up.png'), {
         //     frameWidth: 16,
