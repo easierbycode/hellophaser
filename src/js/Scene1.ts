@@ -33,13 +33,14 @@ export class Scene1 extends Phaser.Scene {
             frameWidth: 33,
             frameHeight: 32
         });
-        // this.load.spritesheet('ship3', require('../assets/spritesheets/ship3.png'), {
-        //     frameWidth: 32,
-        //     frameHeight: 32
-        // });
-        this.load.spritesheet('ship3', require('../assets/spritesheets/virus.png'), {
+
+        this.load.spritesheet('virus', require('../assets/spritesheets/virus.png'), {
             frameWidth: 29,
             frameHeight: 28
+        });
+        this.load.spritesheet('virus-explosion', require('../assets/spritesheets/virus-explosion.png'), {
+            frameWidth: 64,
+            frameHeight: 64
         });
         
         // DRJ
@@ -101,10 +102,18 @@ export class Scene1 extends Phaser.Scene {
         });
 
         this.anims.create({
-            key: 'ship3_anim',
-            frames: this.anims.generateFrameNumbers('ship3'),
+            key: 'virus_anim',
+            frames: this.anims.generateFrameNumbers('virus'),
             frameRate: 20,
             repeat: -1
+        });
+
+        this.anims.create({
+            key: 'virus_explode',
+            frames: this.anims.generateFrameNumbers('virus-explosion'),
+            frameRate: 20,
+            repeat: 0,
+            hideOnComplete: true
         });
 
         this.anims.create({

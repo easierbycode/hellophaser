@@ -2,6 +2,7 @@ import {Beam} from './beam.ts';
 import {config} from './config.ts';
 import {gameSettings} from './game-settings.ts';
 import {Explosion} from './explosion.ts'
+import {VirusExplosion} from './virus-explosion.ts'
 import Phaser from 'phaser';
 
 
@@ -51,16 +52,16 @@ export class Scene2 extends Phaser.Scene {
 
         this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'ship');
         this.ship2 = this.add.sprite(config.width/2, config.height/2, 'ship2');
-        this.ship3 = this.add.sprite(config.width/2 + 50, config.height/2, 'ship3');
+        this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus');
 
         this.enemies = this.physics.add.group();
         this.enemies.add(this.ship1);
         this.enemies.add(this.ship2);
-        this.enemies.add(this.ship3);
+        this.enemies.add(this.virus);
 
         this.ship1.play('ship1_anim');
         this.ship2.play('ship2_anim');
-        this.ship3.play('ship3_anim');
+        this.virus.play('virus_anim');
 
         this.powerUps = this.physics.add.group();
 
@@ -113,7 +114,7 @@ export class Scene2 extends Phaser.Scene {
     update() {
         this.moveShip(this.ship1, 1);
         this.moveShip(this.ship2, 2);
-        this.moveShip(this.ship3, 3);
+        this.moveShip(this.virus, 3);
 
         this.background.tilePositionY -= 0.5;
 
@@ -139,7 +140,21 @@ export class Scene2 extends Phaser.Scene {
     }
     
     hitEnemy(projectile, enemy) {
-        var explosion = new Explosion(this, enemy.x, enemy.y);
+        
+        console.log( enemy.texture.key )
+        var key:string = enemy.texture.key; 
+        switch( key ) { 
+            case "virus": { 
+                var explosion = new VirusExplosion( this, enemy.x, enemy.y ); 
+                break; 
+            }  
+            default: { 
+                var explosion = new Explosion(this, enemy.x, enemy.y); 
+                break;              
+            } 
+        }
+
+        // var explosion = new Explosion(this, enemy.x, enemy.y);
 
         projectile.destroy();
         this.resetShipPos(enemy);
