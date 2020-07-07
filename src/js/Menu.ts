@@ -40,7 +40,7 @@ export class Menu extends Phaser.Scene {
         console.log( 'startBtn x: ', x )
         console.log( 'startBtn y: ', y )
 
-        const virusIcon = this.add.sprite( x - startBtn.width, y - startBtn.height/2, 'ship3', 0 )
+        const virusIcon = this.add.sprite( x - startBtn.width, y - startBtn.height/2, 'virus', 0 )
 
         this.backgrounds = [];
         for (var i = 0; i < 3; i++) {
