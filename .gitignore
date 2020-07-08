@@ -4,3 +4,4 @@ platforms
 plugins
 www
 .cache
+src/assets/_unused
