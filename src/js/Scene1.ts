@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import spaceJSON from '../assets/images/space.json';
 
 
 export class Scene1 extends Phaser.Scene {
@@ -14,21 +15,15 @@ export class Scene1 extends Phaser.Scene {
         // DRJ
         this.load.image('background', require('../assets/images/everwing-space-bg.png'));
 
+        this.load.image( 'blue', require('../assets/images/blue.png'));
+        
         this.load.image('red', require('../assets/images/red.png'));
 
-        // this.load.spritesheet('ship', require('../assets/spritesheets/ship.png'), {
-        //     frameWidth: 16,
-        //     frameHeight: 16
-        // });
         this.load.spritesheet('ship', require('../assets/spritesheets/hatbot.png'), {
             frameWidth: 15,
             frameHeight: 10
         });
         
-        // this.load.spritesheet('ship2', require('../assets/spritesheets/ship2.png'), {
-        //     frameWidth: 32,
-        //     frameHeight: 16
-        // });
         this.load.spritesheet('ship2', require('../assets/spritesheets/asteroid-face.png'), {
             frameWidth: 33,
             frameHeight: 32
@@ -38,38 +33,27 @@ export class Scene1 extends Phaser.Scene {
             frameWidth: 29,
             frameHeight: 28
         });
+
         this.load.spritesheet('virus-explosion', require('../assets/spritesheets/virus-explosion.png'), {
             frameWidth: 64,
             frameHeight: 64
         });
         
-        // DRJ
-        // this.load.spritesheet('explosion', require('../assets/spritesheets/explosion.png'), {
-        //     frameWidth: 16,
-        //     frameHeight: 16
-        // });
         this.load.spritesheet('explosion', require('../assets/spritesheets/purple-sparks.png'), {
             frameWidth: 204,
             frameHeight: 164
         });
-        // this.load.spritesheet('power-up', require('../assets/spritesheets/power-up.png'), {
-        //     frameWidth: 16,
-        //     frameHeight: 16
-        // });
+
         this.load.spritesheet('power-up', require('../assets/spritesheets/SmilEye.png'), {
             frameWidth: 92,
             frameHeight: 82
         });
+
         this.load.spritesheet('player', require('../assets/spritesheets/player.png'), {
             frameWidth: 16,
             frameHeight: 24
         });
 
-        // DRJ
-        // this.load.spritesheet('beam', require('../assets/spritesheets/beam.png'), {
-        //     frameWidth: 16,
-        //     frameHeight: 16
-        // });
         this.load.spritesheet('beam', require('../assets/spritesheets/sperm.png'), {
             frameWidth: 6,
             frameHeight: 22
@@ -81,6 +65,24 @@ export class Scene1 extends Phaser.Scene {
         this.load.audio('audio_explosion', [require('../assets/sounds/explosion.ogg'), require('../assets/sounds/explosion.mp3')]);
         this.load.audio('audio_pickup', [require('../assets/sounds/pickup.ogg'), require('../assets/sounds/pickup.mp3')]);
         this.load.audio('music', [require('../assets/sounds/sci-fi_platformer12.ogg'), require('../assets/sounds/sci-fi_platformer12.mp3')]);
+
+
+        // DRJ- ERROR - `File.js:97 Uncaught TypeError: this.url.indexOf is not a function at JSONFile.File`
+        // this.load.atlas( 'space', '../assets/images/space.png', spaceJSON );
+        // DRJ- ERROR - `File.js:97 Uncaught TypeError: this.url.indexOf is not a function at JSONFile.File`
+        // this.load.atlas( 'space', require('../assets/images/space.png'), spaceJSON );
+        // this.load.atlas(({
+            // key: 'space',
+            // textureURL: '../assets/images/space.png',
+            // DRJ- ERROR - `Phaser v3.23.0-FB (WebGL | Web Audio)  https://phaser.io File.js:97 Uncaught TypeError: this.url.indexOf is not a function at JSONFile.File`
+            // atlasURL: spaceJSON
+            // DRJ- ERROR - `VM556:1 Uncaught SyntaxError: Unexpected token < in JSON at position 0 at JSON.parse`
+            // atlasURL: '../assets/images/space.json'
+            // DRJ- ERROR - 'Local data URIs are not supported: space'
+            // atlasURL: `data:application/json;base64,` + require( '../assets/images/space.json' )
+            // DRJ- ERROR - `XHRLoader.js:70 Not allowed to load local resource: blob:application/json;base64,[object Object]`
+            // atlasURL: `blob:application/json;base64,` + require( '../assets/images/space.json' )
+        // });
     }
 
     create() {
