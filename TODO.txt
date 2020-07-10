@@ -1,8 +1,12 @@
 NOW
 ===
-- asteroid baddie
-  - fire trail from phaser 3 quick start
+- get ship trail working (atlas / emitter issue)
 
 
 LATER
 =====
+- add Google Font Loader (Bangers)
+- tweak score text opacity
+- add ship logic from codeperfectionist enemy
+- asteroid baddie
+  - fire trail from phaser 3 quick start
