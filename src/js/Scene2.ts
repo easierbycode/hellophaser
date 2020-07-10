@@ -102,7 +102,7 @@ export class Scene2 extends Phaser.Scene {
 
 
         // DRJ- 'space' atlas contains 'blue' frame
-        // var particles = this.add.particles(  this.player.emitter = );
+        // var particles = this.add.particles(  'blue', this.player.emitter );
         
 
         this.spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
