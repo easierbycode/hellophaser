@@ -16,5 +16,7 @@ export var config = {
         arcade: {
             debug: false
         }
-    }
+    },
+
+    canvasStyle: 'image-rendering: pixelated;'
 };
