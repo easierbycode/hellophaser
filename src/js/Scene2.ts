@@ -88,43 +88,22 @@ export class Scene2 extends Phaser.Scene {
         }
 
         var player = this.player = this.physics.add.sprite(config.width / 2 - 8, config.height - 64, 'player');
+
+
+        // DRJ- debug
+        this.player.addParticles = ( obj ) => {
+            this.player.particles = this.add.particles( 'blue' );
+        }
+
+
         this.player.play('thrust');
         this.cursorKeys = this.input.keyboard.createCursorKeys();
         this.player.setCollideWorldBounds(true);
 
 
         // DRJ- 'space' atlas contains 'blue' frame
-        var particles = this.add.particles( 'space' );
-
-        var emitter = particles.createEmitter({
-            frame: 'blue',
-            speed: 100,
-            lifespan: {
-                onEmit: function (particle, key, t, value)
-                {
-                    // return Phaser.Math.Percent(ship.body.speed, 0, 300) * 2000;
-                    return Phaser.Math.Percent(player.body.speed, 0, 300) * 2000;
-                }
-            },
-            alpha: {
-                onEmit: function (particle, key, t, value)
-                {
-                    return Phaser.Math.Percent((player.body.speed, 0, 300);
-                }
-            },
-            angle: {
-                onEmit: function (particle, key, t, value)
-                {
-                    var v = Phaser.Math.Between(-10, 10);
-                    return ((player.angle - 180) + v;
-                }
-            },
-            scale: { start: 0.6, end: 0 },
-            blendMode: 'ADD'
-        });
-
-        emitter.startFollow( this.player );
-
+        // var particles = this.add.particles(  this.player.emitter = );
+        
 
         this.spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
@@ -230,17 +209,81 @@ export class Scene2 extends Phaser.Scene {
 
         this.player.alpha = 0.5;
 
+
+        // DRJ- debug
+        var player = this.player;
+
+
         var tween = this.tweens.add({
-            targets: this.player,
+            targets: player,
             y: config.height - 64,
             ease: 'Power1',
             duration: 1500,
             repeat: 0,
             onComplete: function() {
-                this.player.alpha = 1;
+                player.alpha = 1;
+
+                // DRJ- debug
+                // var particles = this.add.particles( 'blue' );
+
+                // this.player.emitter = particles.createEmitter({
+
+                var emitterConfig = {
+                    // DRJ- ERROR - `ParticleManagerWebGLRenderer.js:101 Uncaught TypeError: Cannot read property 'halfWidth' of null at ParticleEmitterManager.ParticleManagerWebGLRenderer [as renderWebGL] `
+                    // frame: 'blue',
+                    // frame: 0,
+                    // frame: ['blue'],
+
+
+                    speed: 100,
+                    lifespan: {
+                        onEmit: function (particle, key, t, value)
+                        {
+                            // return Phaser.Math.Percent(ship.body.speed, 0, 300) * 2000;
+                            return Phaser.Math.Percent(player.body.speed, 0, 300) * 2000;
+                        }
+                    },
+                    alpha: {
+                        onEmit: function (particle, key, t, value)
+                        {
+                            return Phaser.Math.Percent((player.body.speed, 0, 300);
+                        }
+                    },
+                    angle: {
+                        onEmit: function (particle, key, t, value)
+                        {
+                            var v = Phaser.Math.Between(-10, 10);
+                            // return ((player.angle - 180) + v;
+                        }
+                    },
+                    scale: { start: 0.6, end: 0 },
+                    blendMode: 'ADD'
+                };
+
+                // // DRJ- debug
+                // if ( this.player.emitter )  this.player.addParticles( {} );
+                // this.player.addParticles( {} );
+
+                // if ( !this.player.emitter ) {
+                    
+                    
+                    // DRJ- debug
+                    this.player.addParticles( {} );
+
+                    
+                    this.player.emitter = this.player.particles.createEmitter( emitterConfig );
+                    // this.player.particles = add.particles( 'blue', 0, this.player.emitter );
+                    this.player.emitter.startFollow( this.player );
+
+                    console.log( 'startFollow( this.player )' );
+                // }
+
             },
             callbackScope: this
         });
+
+
+        this.player.addParticles( {} );
     }
 
     pickPowerUp(player, powerUp) {
