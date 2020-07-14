@@ -1,12 +1,15 @@
 NOW
 ===
-- get ship trail working (atlas / emitter issue)
+- add Sentinel
 
 
 LATER
 =====
-- add Google Font Loader (Bangers)
+- move player to it's own class
+  - create emitter on init/reset
+- get ship trail working (atlas / emitter issue)
 - tweak score text opacity
 - add ship logic from codeperfectionist enemy
 - asteroid baddie
   - fire trail from phaser 3 quick start
+- undo canvasStyle (since didn't fix)
