@@ -28,7 +28,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content: blob:; connect-src * 'unsafe-inline';">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://fonts.googleapis.com https://fonts.googleapis.com http://ajax.googleapis.com https://ajax.googleapis.com https://ssl.gstatic.com 'unsafe-eval'; font-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src 'self' data: content: blob:; connect-src * 'unsafe-inline';">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover, user-scalable=no">
@@ -43,6 +43,7 @@
                 <p class="event received">Device is Ready</p>
             </div>
         </div>
+        <script type="text/javascript" src="js/font-loader.ts"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/phaser.min.js"></script>
         <script type="text/javascript" src="js/index.ts"></script>
