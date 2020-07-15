@@ -21,6 +21,11 @@ export class Scene1 extends Phaser.Scene {
         
         this.load.image( 'eva-cola', require('../assets/spritesheets/eva-cola.png') );
 
+        this.load.spritesheet('human', require('../assets/spritesheets/human.png'), {
+            frameWidth: 16,
+            frameHeight: 27
+        });
+        
         this.load.spritesheet('ship', require('../assets/spritesheets/hatbot.png'), {
             frameWidth: 15,
             frameHeight: 10
@@ -190,6 +195,13 @@ export class Scene1 extends Phaser.Scene {
             frameRate: 8,
             repeat: 0,
             yoyo: true
+        });
+
+        this.anims.create({
+            key: 'parachute',
+            frames: this.anims.generateFrameNumbers( 'human' ),
+            frameRate: 1,
+            repeat: -1
         });
     }
 }

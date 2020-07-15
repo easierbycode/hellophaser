@@ -1,5 +1,6 @@
 
 import { Explosion } from './explosion.ts';
+import { Human } from './human';
 
 
 export class Sentinel extends Phaser.GameObjects.Sprite {
@@ -20,7 +21,17 @@ export class Sentinel extends Phaser.GameObjects.Sprite {
         if ( this.health == 0 ) {
             this.body.velocity.x = 0;
             this.play( 'drop_cargo' );
-            setTimeout( () => { this.destroy() }, 500 );
+            setTimeout( () => {
+                let {x, y} = this.getTopLeft();
+                x += 61;
+                y += 28;
+                new Human( this.scene, x, y );
+
+                setTimeout( () => {
+                    this.destroy();
+                }, 500 );
+                
+            }, 500 );
         }
     }
 
