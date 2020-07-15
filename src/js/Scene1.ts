@@ -39,9 +39,14 @@ export class Scene1 extends Phaser.Scene {
             frameHeight: 64
         });
         
-        this.load.spritesheet('explosion', require('../assets/spritesheets/purple-sparks.png'), {
+        this.load.spritesheet('purple-sparks', require('../assets/spritesheets/purple-sparks.png'), {
             frameWidth: 204,
             frameHeight: 164
+        });
+
+        this.load.spritesheet('explosion', require('../assets/spritesheets/explosion.png'), {
+            frameWidth: 16,
+            frameHeight: 16
         });
 
         this.load.spritesheet('power-up', require('../assets/spritesheets/SmilEye.png'), {
@@ -57,6 +62,11 @@ export class Scene1 extends Phaser.Scene {
         this.load.spritesheet('beam', require('../assets/spritesheets/sperm.png'), {
             frameWidth: 6,
             frameHeight: 22
+        });
+
+        this.load.spritesheet('sentinel', require('../assets/spritesheets/sentinel.png'), {
+            frameWidth: 87,
+            frameHeight: 35
         });
 
         this.load.bitmapFont('pixelFont', require('../assets/font/font.png'), require('../assets/font/font.xml'));
@@ -127,6 +137,14 @@ export class Scene1 extends Phaser.Scene {
         });
 
         this.anims.create({
+            key: 'purpleSparksExplode',
+            frames: this.anims.generateFrameNumbers('purple-sparks'),
+            frameRate: 20,
+            repeat: 0,
+            hideOnComplete: true
+        });
+
+        this.anims.create({
             key: 'red',
             frames: this.anims.generateFrameNumbers('power-up', {
                 start: 0,
@@ -159,6 +177,17 @@ export class Scene1 extends Phaser.Scene {
             frames: this.anims.generateFrameNumbers('beam'),
             frameRate: 20,
             repeat: -1
+        });
+
+        this.anims.create({
+            key: 'drop_cargo',
+            frames: this.anims.generateFrameNumbers('sentinel', {
+                start: 0,
+                end: 2
+            }),
+            frameRate: 8,
+            repeat: 0,
+            yoyo: true
         });
     }
 }

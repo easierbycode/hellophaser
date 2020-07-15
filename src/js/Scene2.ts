@@ -4,6 +4,8 @@ import {gameSettings} from './game-settings.ts';
 import {Explosion} from './explosion.ts'
 import {VirusExplosion} from './virus-explosion.ts'
 import Phaser from 'phaser';
+import { Sentinel } from './sentinel.ts';
+import { PurpleSparks } from './purple-sparks';
 
 
 export class Scene2 extends Phaser.Scene {
@@ -53,6 +55,10 @@ export class Scene2 extends Phaser.Scene {
         this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'ship');
         this.ship2 = this.add.sprite(config.width/2, config.height/2, 'ship2');
         this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus');
+
+
+        this.sentinel = new Sentinel( this, -587, 35 );
+
 
         this.enemies = this.physics.add.group();
         this.enemies.add(this.ship1);
@@ -121,6 +127,13 @@ export class Scene2 extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.enemies, this.hurtPlayer, null, this);
 
         this.physics.add.overlap(this.projectiles, this.enemies, this.hitEnemy, null, this);
+
+
+        this.physics.add.overlap(this.projectiles, this.sentinel, (projectile, enemy) => {
+            projectile.destroy();
+            enemy.damage();
+            console.log( enemy );
+        }, null, this);
     }
 
     // //  loop which runs continuously
@@ -162,7 +175,8 @@ export class Scene2 extends Phaser.Scene {
                 break; 
             }  
             default: { 
-                var explosion = new Explosion(this, enemy.x, enemy.y); 
+                // var explosion = new Explosion(this, enemy.x, enemy.y);
+                var explosion = new PurpleSparks(this, enemy.x, enemy.y); 
                 break;              
             } 
         }
