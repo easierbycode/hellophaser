@@ -1,12 +1,11 @@
 NOW
 ===
-- add Sentinel
+- move player to it's own class
+  - create emitter on init/reset
 
 
 LATER
 =====
-- move player to it's own class
-  - create emitter on init/reset
 - get ship trail working (atlas / emitter issue)
 - tweak score text opacity
 - add ship logic from codeperfectionist enemy
