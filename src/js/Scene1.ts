@@ -18,6 +18,8 @@ export class Scene1 extends Phaser.Scene {
         this.load.image( 'blue', require('../assets/images/blue.png'));
         
         this.load.image('red', require('../assets/images/red.png'));
+        
+        this.load.image( 'eva-cola', require('../assets/spritesheets/eva-cola.png') );
 
         this.load.spritesheet('ship', require('../assets/spritesheets/hatbot.png'), {
             frameWidth: 15,

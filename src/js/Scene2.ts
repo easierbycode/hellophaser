@@ -93,7 +93,8 @@ export class Scene2 extends Phaser.Scene {
             powerUp.setBounce(1);
         }
 
-        var player = this.player = this.physics.add.sprite(config.width / 2 - 8, config.height - 64, 'player');
+        var player = this.player = this.physics.add.sprite(config.width / 2 - 8, config.height - 64, 'eva-cola');
+        this.player.setScale( 0.015 );
 
 
         // DRJ- debug
@@ -102,7 +103,7 @@ export class Scene2 extends Phaser.Scene {
         }
 
 
-        this.player.play('thrust');
+        // this.player.play('thrust');
         this.cursorKeys = this.input.keyboard.createCursorKeys();
         this.player.setCollideWorldBounds(true);
 
