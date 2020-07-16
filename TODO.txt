@@ -1,14 +1,12 @@
 NOW
 ===
-- move player to it's own class
-  - create emitter on init/reset
+- tweak score text opacity
 
 
 LATER
 =====
-- get ship trail working (atlas / emitter issue)
-- tweak score text opacity
 - add ship logic from codeperfectionist enemy
+- get ship trail working
 - asteroid baddie
   - fire trail from phaser 3 quick start
 - undo canvasStyle (since didn't fix)
