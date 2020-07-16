@@ -6,6 +6,7 @@ import {VirusExplosion} from './virus-explosion.ts'
 import Phaser from 'phaser';
 import { Sentinel } from './sentinel.ts';
 import { PurpleSparks } from './purple-sparks';
+import { Player } from './player';
 
 
 export class Scene2 extends Phaser.Scene {
@@ -55,10 +56,7 @@ export class Scene2 extends Phaser.Scene {
         this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'ship');
         this.ship2 = this.add.sprite(config.width/2, config.height/2, 'ship2');
         this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus');
-
-
         this.sentinel = new Sentinel( this, -587, 35 );
-
 
         this.enemies = this.physics.add.group();
         this.enemies.add(this.ship1);
@@ -93,24 +91,9 @@ export class Scene2 extends Phaser.Scene {
             powerUp.setBounce(1);
         }
 
-        var player = this.player = this.physics.add.sprite(config.width / 2 - 8, config.height - 64, 'eva-cola');
-        this.player.setScale( 0.015 );
+        this.player = new Player( this, config.width / 2 - 8, config.height - 64 );
 
-
-        // DRJ- debug
-        this.player.addParticles = ( obj ) => {
-            this.player.particles = this.add.particles( 'blue' );
-        }
-
-
-        // this.player.play('thrust');
         this.cursorKeys = this.input.keyboard.createCursorKeys();
-        this.player.setCollideWorldBounds(true);
-
-
-        // DRJ- 'space' atlas contains 'blue' frame
-        // var particles = this.add.particles(  'blue', this.player.emitter );
-        
 
         this.spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
@@ -133,7 +116,6 @@ export class Scene2 extends Phaser.Scene {
         this.physics.add.overlap(this.projectiles, this.sentinel, (projectile, enemy) => {
             projectile.destroy();
             enemy.damage();
-            console.log( enemy );
         }, null, this);
     }
 
@@ -167,22 +149,18 @@ export class Scene2 extends Phaser.Scene {
     }
     
     hitEnemy(projectile, enemy) {
+        var key: string = enemy.texture.key;
         
-        console.log( enemy.texture.key )
-        var key:string = enemy.texture.key; 
         switch( key ) { 
             case "virus": { 
                 var explosion = new VirusExplosion( this, enemy.x, enemy.y ); 
                 break; 
             }  
             default: { 
-                // var explosion = new Explosion(this, enemy.x, enemy.y);
                 var explosion = new PurpleSparks(this, enemy.x, enemy.y); 
                 break;              
             } 
         }
-
-        // var explosion = new Explosion(this, enemy.x, enemy.y);
 
         projectile.destroy();
         this.resetShipPos(enemy);
@@ -194,20 +172,19 @@ export class Scene2 extends Phaser.Scene {
     }
 
     hurtPlayer(player, enemy) {
-        this.resetShipPos(enemy);
+        if ( this.player.alpha < 1 || this.player.active == false )  return;
 
-        if (this.player.alpha < 1)  return;
+        this.resetShipPos( enemy );
 
         navigator.vibrate(Infinity);
 
         var explosion = new Explosion(this, player.x, player.y);
 
-        player.disableBody(true, true);
+        this.player.setActive( false );
+        this.player.setVisible( false );
 
-        // this.resetPlayer();
         this.time.addEvent({
             delay: 1000,
-            // callback: this.resetPlayer,
             callback: () => {
                 navigator.vibrate(0);
                 this.resetPlayer();
@@ -220,88 +197,28 @@ export class Scene2 extends Phaser.Scene {
     resetPlayer() {
         var x = config.width / 2 - 8;
         var y = config.height + 64;
-        this.player.enableBody(true, x, y, true, true);
 
+        this.player.x = x;
+        this.player.y = y;
+        this.player.setActive( true );
+        this.player.setVisible( true );
         this.player.alpha = 0.5;
 
-
-        // DRJ- debug
-        var player = this.player;
-
-
         var tween = this.tweens.add({
-            targets: player,
+            targets: this.player,
             y: config.height - 64,
             ease: 'Power1',
             duration: 1500,
             repeat: 0,
             onComplete: function() {
-                player.alpha = 1;
-
-                // DRJ- debug
-                // var particles = this.add.particles( 'blue' );
-
-                // this.player.emitter = particles.createEmitter({
-
-                var emitterConfig = {
-                    // DRJ- ERROR - `ParticleManagerWebGLRenderer.js:101 Uncaught TypeError: Cannot read property 'halfWidth' of null at ParticleEmitterManager.ParticleManagerWebGLRenderer [as renderWebGL] `
-                    // frame: 'blue',
-                    // frame: 0,
-                    // frame: ['blue'],
-
-
-                    speed: 100,
-                    lifespan: {
-                        onEmit: function (particle, key, t, value)
-                        {
-                            // return Phaser.Math.Percent(ship.body.speed, 0, 300) * 2000;
-                            return Phaser.Math.Percent(player.body.speed, 0, 300) * 2000;
-                        }
-                    },
-                    alpha: {
-                        onEmit: function (particle, key, t, value)
-                        {
-                            return Phaser.Math.Percent((player.body.speed, 0, 300);
-                        }
-                    },
-                    angle: {
-                        onEmit: function (particle, key, t, value)
-                        {
-                            var v = Phaser.Math.Between(-10, 10);
-                            // return ((player.angle - 180) + v;
-                        }
-                    },
-                    scale: { start: 0.6, end: 0 },
-                    blendMode: 'ADD'
-                };
-
-                // // DRJ- debug
-                // if ( this.player.emitter )  this.player.addParticles( {} );
-                // this.player.addParticles( {} );
-
-                // if ( !this.player.emitter ) {
-                    
-                    
-                    // DRJ- debug
-                    this.player.addParticles( {} );
-
-                    
-                    this.player.emitter = this.player.particles.createEmitter( emitterConfig );
-                    // this.player.particles = add.particles( 'blue', 0, this.player.emitter );
-                    this.player.emitter.startFollow( this.player );
-
-                    console.log( 'startFollow( this.player )' );
-                // }
-
+                this.player.alpha = 1;
             },
             callbackScope: this
         });
-
-
-        this.player.addParticles( {} );
     }
 
     pickPowerUp(player, powerUp) {
+        if ( this.player.alpha < 1 || this.player.active == false )  return;
         powerUp.disableBody(true, true);
         this.pickupSound.play();
     }
@@ -314,7 +231,7 @@ export class Scene2 extends Phaser.Scene {
     }
     
     movePlayerManager() {
-        this.player.setVelocity(0);
+        this.player.body.setVelocity(0);
 
         if (this.input.activePointer.isDown) {
             this.player.x = this.input.activePointer.x;
@@ -325,15 +242,15 @@ export class Scene2 extends Phaser.Scene {
         }
 
         if (this.cursorKeys.left.isDown) {
-            this.player.setVelocityX(-gameSettings.playerSpeed);
+            this.player.body.setVelocityX(-gameSettings.playerSpeed);
         } else if (this.cursorKeys.right.isDown) {
-            this.player.setVelocityX(gameSettings.playerSpeed);
+            this.player.body.setVelocityX(gameSettings.playerSpeed);
         }
 
         if (this.cursorKeys.up.isDown) {
-            this.player.setVelocityY(-gameSettings.playerSpeed);
+            this.player.body.setVelocityY(-gameSettings.playerSpeed);
         } else if (this.cursorKeys.down.isDown) {
-            this.player.setVelocityY(gameSettings.playerSpeed);
+            this.player.body.setVelocityY(gameSettings.playerSpeed);
         }
     }
 
