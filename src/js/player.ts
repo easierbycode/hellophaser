@@ -7,7 +7,7 @@ export class Player extends Phaser.GameObjects.Sprite {
 
         var particles = scene.add.particles( 'blue' );
 
-        var emitter = particles.createEmitter({
+        this.emitter = particles.createEmitter({
             speed: 125,
             lifespan: {
                 onEmit: (particle, key, t, value) =>
@@ -28,8 +28,10 @@ export class Player extends Phaser.GameObjects.Sprite {
 
         this.body.setCollideWorldBounds(true);
         this.setScale( 0.25 );
-        emitter.startFollow( this );
+        this.emitter.startFollow( this );
         scene.add.existing( this );
+
+        console.log( this.emitter );
     }
 
 }

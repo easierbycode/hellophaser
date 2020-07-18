@@ -180,6 +180,7 @@ export class Scene2 extends Phaser.Scene {
 
         var explosion = new Explosion(this, player.x, player.y);
 
+        this.player.emitter.setVisible( false );
         this.player.setActive( false );
         this.player.setVisible( false );
 
@@ -212,6 +213,7 @@ export class Scene2 extends Phaser.Scene {
             repeat: 0,
             onComplete: function() {
                 this.player.alpha = 1;
+                this.player.emitter.setVisible( true );
             },
             callbackScope: this
         });
