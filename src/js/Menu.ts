@@ -33,16 +33,19 @@ export class Menu extends Phaser.Scene {
 
         this.makeAlignGrid(11, 11);
         // DRJ- debug
-        this.aGrid.showNumbers();
+        // this.aGrid.showNumbers();
 
         // start button
         const startBtn = this.add.sprite(config.width/2, config.height/2, 'startBtn');
+        // DRJ- debug
+        this.aGrid.placeAtIndex( 60, startBtn );
         startBtn.setInteractive();
         startBtn.once('pointerdown', () => this.scene.start('playGame'));
 
         // options button
         let {x,y} = startBtn.getBottomCenter();
         const optionsBtn = this.add.sprite(x, y + startBtn.height, 'optionsBtn');
+        this.aGrid.placeAtIndex( 27, optionsBtn );
 
         //DRJ
 
