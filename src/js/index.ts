@@ -19,7 +19,7 @@ import {config} from './config.ts';
  * specific language governing permissions and limitations
  * under the License.
  */
-var game;
+window.game = window.game || {};
 
 var app = {
     // Application Constructor
@@ -33,7 +33,7 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
-        game = new Phaser.Game(config);
+        window.game = new Phaser.Game(config);
     },
 
     // Update DOM on a Received Event

@@ -1,4 +1,4 @@
-class AlignGrid
+export class AlignGrid
 {
 	constructor(config)
 	{
@@ -18,11 +18,11 @@ class AlignGrid
 		}
 		if (!config.height)
 		{
-			config.height=game.config.height;
+			config.height=window.game.config.height;
 		}
 		if (!config.width)
 		{
-			config.width=game.config.width;
+			config.width=window.game.config.width;
 		}
 
 		this.scene=config.scene;

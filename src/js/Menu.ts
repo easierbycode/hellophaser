@@ -1,6 +1,7 @@
 import {config} from './config';
 import {Scene1} from './Scene1';
 import {ScrollingBackground} from './scrolling-background';
+import {AlignGrid} from './utilities/alignGrid.ts';
 
 
 export class Menu extends Phaser.Scene {
@@ -8,6 +9,14 @@ export class Menu extends Phaser.Scene {
     constructor() {
         super('menu');
         this.scene1 = new Scene1();
+    }
+
+    makeAlignGrid(r = 11, c = 11) {
+        this.aGrid = new AlignGrid({
+            scene: this,
+            rows: r,
+            cols: c
+        });
     }
 
     public preload(): void {
@@ -21,6 +30,10 @@ export class Menu extends Phaser.Scene {
 
     public create(): void {
         this.scene1.create.call(this);
+
+        this.makeAlignGrid(11, 11);
+        // DRJ- debug
+        this.aGrid.showNumbers();
 
         // start button
         const startBtn = this.add.sprite(config.width/2, config.height/2, 'startBtn');
