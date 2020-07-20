@@ -35,6 +35,8 @@ export class Scene2 extends Phaser.Scene {
         this.score = 0;
         this.scoreLabel = this.add.bitmapText(10, 5, 'pixelFont', 'SCORE ', 16);
 
+        this.scoreLabel.alpha = 0.15;
+
         this.beamSound = this.sound.add('audio_beam');
         this.explosionSound = this.sound.add('audio_explosion');
         this.pickupSound = this.sound.add('audio_pickup');
