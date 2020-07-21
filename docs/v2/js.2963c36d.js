@@ -2710,55 +2710,55 @@ var e=require("../../../../src/gameobjects/BuildGameObject"),r=require("../../..
 var global = arguments[3];
 var e=arguments[3];require("./polyfills");var r=require("./const"),i=require("./utils/object/Extend"),s={Actions:require("./actions"),Animations:require("./animations"),BlendModes:require("./renderer/BlendModes"),Cache:require("./cache"),Cameras:require("./cameras"),Core:require("./core"),Class:require("./utils/Class"),Create:require("./create"),Curves:require("./curves"),Data:require("./data"),Display:require("./display"),DOM:require("./dom"),Events:require("./events"),Game:require("./core/Game"),GameObjects:require("./gameobjects"),Geom:require("./geom"),Input:require("./input"),Loader:require("./loader"),Math:require("./math"),Physics:require("./physics"),Plugins:require("./plugins"),Renderer:require("./renderer"),Scale:require("./scale"),ScaleModes:require("./renderer/ScaleModes"),Scene:require("./scene/Scene"),Scenes:require("./scene"),Structs:require("./structs"),Textures:require("./textures"),Tilemaps:require("./tilemaps"),Time:require("./time"),Tweens:require("./tweens"),Utils:require("./utils")};s.Sound=require("./sound"),s.Cameras.Sprite3D=require("../plugins/camera3d/src"),s.GameObjects.Sprite3D=require("../plugins/camera3d/src/sprite3d/Sprite3D"),s.GameObjects.Factories.Sprite3D=require("../plugins/camera3d/src/sprite3d/Sprite3DFactory"),s.GameObjects.Creators.Sprite3D=require("../plugins/camera3d/src/sprite3d/Sprite3DCreator"),s.FacebookInstantGamesPlugin=require("../plugins/fbinstant/src/FacebookInstantGamesPlugin"),s=i(!1,s,r),module.exports=s,e.Phaser=s;
 },{"./polyfills":"GUoX","./const":"BLd6","./utils/object/Extend":"SFmW","./actions":"qHcr","./animations":"l5Gc","./renderer/BlendModes":"PaIu","./cache":"kCvn","./cameras":"icNy","./core":"WTFh","./utils/Class":"JASv","./create":"IFpz","./curves":"FoZ4","./data":"Zvsc","./display":"S2HQ","./dom":"UpAE","./events":"YPtB","./core/Game":"pS21","./gameobjects":"TTaA","./geom":"HXAG","./input":"hCMr","./loader":"e9Dy","./math":"nIfb","./physics":"LhbK","./plugins":"czmb","./renderer":"SydA","./scale":"tty9","./renderer/ScaleModes":"RtU1","./scene/Scene":"ocpX","./scene":"eZD7","./structs":"ACuu","./textures":"t3dj","./tilemaps":"iPWZ","./time":"IIfW","./tweens":"bIAx","./utils":"XrGF","./sound":"LyI7","../plugins/camera3d/src":"xkyT","../plugins/camera3d/src/sprite3d/Sprite3D":"BKkC","../plugins/camera3d/src/sprite3d/Sprite3DFactory":"bknR","../plugins/camera3d/src/sprite3d/Sprite3DCreator":"Qll3","../plugins/fbinstant/src/FacebookInstantGamesPlugin":"c43s"}],"eF3D":[function(require,module,exports) {
-module.exports="/hellophaser/everwing-space-bg.f6026c7a.png";
+module.exports="/hellophaser/v2/everwing-space-bg.f6026c7a.png";
 },{}],"Ag9n":[function(require,module,exports) {
-module.exports="/hellophaser/blue.c9e4de8e.png";
+module.exports="/hellophaser/v2/blue.c9e4de8e.png";
 },{}],"yGBK":[function(require,module,exports) {
-module.exports="/hellophaser/red.faa5f9ee.png";
+module.exports="/hellophaser/v2/red.faa5f9ee.png";
 },{}],"iYyD":[function(require,module,exports) {
-module.exports="/hellophaser/eva-cola.1d847d07.png";
+module.exports="/hellophaser/v2/eva-cola.1d847d07.png";
 },{}],"hqxG":[function(require,module,exports) {
-module.exports="/hellophaser/ship-boy.77f26518.png";
+module.exports="/hellophaser/v2/ship-boy.77f26518.png";
 },{}],"y89G":[function(require,module,exports) {
-module.exports="/hellophaser/human.2070695c.png";
+module.exports="/hellophaser/v2/human.2070695c.png";
 },{}],"fXSH":[function(require,module,exports) {
-module.exports="/hellophaser/hatbot.0b4bd93d.png";
+module.exports="/hellophaser/v2/hatbot.0b4bd93d.png";
 },{}],"IMMa":[function(require,module,exports) {
-module.exports="/hellophaser/asteroid-face.727a970d.png";
+module.exports="/hellophaser/v2/asteroid-face.727a970d.png";
 },{}],"f2JG":[function(require,module,exports) {
-module.exports="/hellophaser/virus.4e175c43.png";
+module.exports="/hellophaser/v2/virus.4e175c43.png";
 },{}],"TjIx":[function(require,module,exports) {
-module.exports="/hellophaser/virus-explosion.a76d3f53.png";
+module.exports="/hellophaser/v2/virus-explosion.a76d3f53.png";
 },{}],"HfPQ":[function(require,module,exports) {
-module.exports="/hellophaser/purple-sparks.039daca6.png";
+module.exports="/hellophaser/v2/purple-sparks.039daca6.png";
 },{}],"V3Sr":[function(require,module,exports) {
-module.exports="/hellophaser/explosion.1e42e8d0.png";
+module.exports="/hellophaser/v2/explosion.1e42e8d0.png";
 },{}],"up2k":[function(require,module,exports) {
-module.exports="/hellophaser/SmilEye.5024cee7.png";
+module.exports="/hellophaser/v2/SmilEye.5024cee7.png";
 },{}],"G6gq":[function(require,module,exports) {
-module.exports="/hellophaser/player.bb52724d.png";
+module.exports="/hellophaser/v2/player.bb52724d.png";
 },{}],"V8qb":[function(require,module,exports) {
-module.exports="/hellophaser/sperm.f06269b3.png";
+module.exports="/hellophaser/v2/sperm.f06269b3.png";
 },{}],"SOMQ":[function(require,module,exports) {
-module.exports="/hellophaser/sentinel.d2fb1348.png";
+module.exports="/hellophaser/v2/sentinel.d2fb1348.png";
 },{}],"N48q":[function(require,module,exports) {
-module.exports="/hellophaser/font.961a9a20.png";
+module.exports="/hellophaser/v2/font.961a9a20.png";
 },{}],"fYjF":[function(require,module,exports) {
-module.exports="/hellophaser/font.c53f249f.xml";
+module.exports="/hellophaser/v2/font.c53f249f.xml";
 },{}],"z9a3":[function(require,module,exports) {
-module.exports="/hellophaser/beam.871c411a.ogg";
+module.exports="/hellophaser/v2/beam.871c411a.ogg";
 },{}],"lQvg":[function(require,module,exports) {
-module.exports="/hellophaser/beam.d308b14a.mp3";
+module.exports="/hellophaser/v2/beam.d308b14a.mp3";
 },{}],"tgmL":[function(require,module,exports) {
-module.exports="/hellophaser/explosion.c8e71d5a.ogg";
+module.exports="/hellophaser/v2/explosion.c8e71d5a.ogg";
 },{}],"ki2F":[function(require,module,exports) {
-module.exports="/hellophaser/explosion.06b48100.mp3";
+module.exports="/hellophaser/v2/explosion.06b48100.mp3";
 },{}],"RQxm":[function(require,module,exports) {
-module.exports="/hellophaser/pickup.0e88b7f6.ogg";
+module.exports="/hellophaser/v2/pickup.0e88b7f6.ogg";
 },{}],"Ea8e":[function(require,module,exports) {
-module.exports="/hellophaser/pickup.50b63989.mp3";
+module.exports="/hellophaser/v2/pickup.50b63989.mp3";
 },{}],"G4o1":[function(require,module,exports) {
-module.exports="/hellophaser/title-song-vbr (Mastered with Thunder at 100pct).7ab5d673.mp3";
+module.exports="/hellophaser/v2/title-song-vbr (Mastered with Thunder at 100pct).7ab5d673.mp3";
 },{}],"dov4":[function(require,module,exports) {
 "use strict";var e=this&&this.__extends||function(){var e=function(s,t){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,s){e.__proto__=s}||function(e,s){for(var t in s)s.hasOwnProperty(t)&&(e[t]=s[t])})(s,t)};return function(s,t){function r(){this.constructor=s}e(s,t),s.prototype=null===t?Object.create(t):(r.prototype=t.prototype,new r)}}(),s=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0});var t=s(require("phaser")),r=function(s){function t(){return s.call(this,"bootGame")||this}return e(t,s),t.prototype.preload=function(){this.load.image("background",require("../assets/images/everwing-space-bg.png")),this.load.image("blue",require("../assets/images/blue.png")),this.load.image("red",require("../assets/images/red.png")),this.load.image("eva-cola",require("../assets/spritesheets/eva-cola.png")),this.load.image("ship-boy",require("../assets/spritesheets/ship-boy.png")),this.load.spritesheet("human",require("../assets/spritesheets/human.png"),{frameWidth:16,frameHeight:27}),this.load.spritesheet("ship",require("../assets/spritesheets/hatbot.png"),{frameWidth:15,frameHeight:10}),this.load.spritesheet("ship2",require("../assets/spritesheets/asteroid-face.png"),{frameWidth:33,frameHeight:32}),this.load.spritesheet("virus",require("../assets/spritesheets/virus.png"),{frameWidth:29,frameHeight:28}),this.load.spritesheet("virus-explosion",require("../assets/spritesheets/virus-explosion.png"),{frameWidth:64,frameHeight:64}),this.load.spritesheet("purple-sparks",require("../assets/spritesheets/purple-sparks.png"),{frameWidth:204,frameHeight:164}),this.load.spritesheet("explosion",require("../assets/spritesheets/explosion.png"),{frameWidth:16,frameHeight:16}),this.load.spritesheet("power-up",require("../assets/spritesheets/SmilEye.png"),{frameWidth:92,frameHeight:82}),this.load.spritesheet("player",require("../assets/spritesheets/player.png"),{frameWidth:16,frameHeight:24}),this.load.spritesheet("beam",require("../assets/spritesheets/sperm.png"),{frameWidth:6,frameHeight:22}),this.load.spritesheet("sentinel",require("../assets/spritesheets/sentinel.png"),{frameWidth:87,frameHeight:35}),this.load.bitmapFont("pixelFont",require("../assets/font/font.png"),require("../assets/font/font.xml")),this.load.audio("audio_beam",[require("../assets/sounds/beam.ogg"),require("../assets/sounds/beam.mp3")]),this.load.audio("audio_explosion",[require("../assets/sounds/explosion.ogg"),require("../assets/sounds/explosion.mp3")]),this.load.audio("audio_pickup",[require("../assets/sounds/pickup.ogg"),require("../assets/sounds/pickup.mp3")]),this.load.audio("music",require("../assets/sounds/title-song-vbr (Mastered with Thunder at 100pct).mp3"))},t.prototype.create=function(){this.anims.create({key:"ship1_anim",frames:this.anims.generateFrameNumbers("ship"),frameRate:20,repeat:-1}),this.anims.create({key:"ship2_anim",frames:this.anims.generateFrameNumbers("ship2"),frameRate:20,repeat:-1}),this.anims.create({key:"virus_anim",frames:this.anims.generateFrameNumbers("virus"),frameRate:20,repeat:-1}),this.anims.create({key:"virus_explode",frames:this.anims.generateFrameNumbers("virus-explosion"),frameRate:20,repeat:0,hideOnComplete:!0}),this.anims.create({key:"explode",frames:this.anims.generateFrameNumbers("explosion"),frameRate:20,repeat:0,hideOnComplete:!0}),this.anims.create({key:"purpleSparksExplode",frames:this.anims.generateFrameNumbers("purple-sparks"),frameRate:20,repeat:0,hideOnComplete:!0}),this.anims.create({key:"red",frames:this.anims.generateFrameNumbers("power-up",{start:0,end:19}),frameRate:8,repeat:-1}),this.anims.create({key:"gray",frames:this.anims.generateFrameNumbers("power-up",{start:19,end:0}),frameRate:8,repeat:-1}),this.anims.create({key:"thrust",frames:this.anims.generateFrameNumbers("player"),frameRate:20,repeat:-1}),this.anims.create({key:"beam_anim",frames:this.anims.generateFrameNumbers("beam"),frameRate:20,repeat:-1}),this.anims.create({key:"drop_cargo",frames:this.anims.generateFrameNumbers("sentinel",{start:0,end:2}),frameRate:8,repeat:0,yoyo:!0}),this.anims.create({key:"parachute",frames:this.anims.generateFrameNumbers("human"),frameRate:1,repeat:-1})},t}(t.default.Scene);exports.Scene1=r;
 },{"phaser":"g7IM","../assets/images/everwing-space-bg.png":"eF3D","../assets/images/blue.png":"Ag9n","../assets/images/red.png":"yGBK","../assets/spritesheets/eva-cola.png":"iYyD","../assets/spritesheets/ship-boy.png":"hqxG","../assets/spritesheets/human.png":"y89G","../assets/spritesheets/hatbot.png":"fXSH","../assets/spritesheets/asteroid-face.png":"IMMa","../assets/spritesheets/virus.png":"f2JG","../assets/spritesheets/virus-explosion.png":"TjIx","../assets/spritesheets/purple-sparks.png":"HfPQ","../assets/spritesheets/explosion.png":"V3Sr","../assets/spritesheets/SmilEye.png":"up2k","../assets/spritesheets/player.png":"G6gq","../assets/spritesheets/sperm.png":"V8qb","../assets/spritesheets/sentinel.png":"SOMQ","../assets/font/font.png":"N48q","../assets/font/font.xml":"fYjF","../assets/sounds/beam.ogg":"z9a3","../assets/sounds/beam.mp3":"lQvg","../assets/sounds/explosion.ogg":"tgmL","../assets/sounds/explosion.mp3":"ki2F","../assets/sounds/pickup.ogg":"RQxm","../assets/sounds/pickup.mp3":"Ea8e","../assets/sounds/title-song-vbr (Mastered with Thunder at 100pct).mp3":"G4o1"}],"MlZH":[function(require,module,exports) {
@@ -2766,13 +2766,13 @@ module.exports="/hellophaser/title-song-vbr (Mastered with Thunder at 100pct).7a
 },{}],"mPLj":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var i=function(){function i(i){this.config=i,i.scene?(i.rows||(i.rows=5),i.cols||(i.cols=5),i.height||(i.height=window.game.config.height),i.width||(i.width=window.game.config.width),this.scene=i.scene,this.cw=i.width/i.cols,this.ch=i.height/i.rows):console.log("missing scene")}return i.prototype.show=function(){this.graphics=this.scene.add.graphics(),this.graphics.lineStyle(2,16711680);for(var i=0;i<this.config.width;i+=this.cw)this.graphics.moveTo(i,0),this.graphics.lineTo(i,this.config.height);for(i=0;i<this.config.height;i+=this.ch)this.graphics.moveTo(0,i),this.graphics.lineTo(this.config.width,i);this.graphics.strokePath()},i.prototype.placeAt=function(i,t,s){var h=this.cw*i+this.cw/2,o=this.ch*t+this.ch/2;s.x=h,s.y=o},i.prototype.placeAtIndex=function(i,t){var s=Math.floor(i/this.config.cols),h=i-s*this.config.cols;this.placeAt(h,s,t)},i.prototype.showNumbers=function(){this.show();for(var i=0,t=0;t<this.config.rows;t++)for(var s=0;s<this.config.cols;s++){var h=this.scene.add.text(0,0,i,{color:"#ff0000"});h.setOrigin(.5,.5),this.placeAtIndex(i,h),i++}},i}();exports.AlignGrid=i;
 },{}],"o8RG":[function(require,module,exports) {
-module.exports="/hellophaser/start-btn.f70ed697.png";
+module.exports="/hellophaser/v2/start-btn.f70ed697.png";
 },{}],"gchF":[function(require,module,exports) {
-module.exports="/hellophaser/RonaGun-logo.d7fe971d.png";
+module.exports="/hellophaser/v2/RonaGun-logo.d7fe971d.png";
 },{}],"ha7U":[function(require,module,exports) {
-module.exports="/hellophaser/star-bg-0.794d466b.png";
+module.exports="/hellophaser/v2/star-bg-0.794d466b.png";
 },{}],"W0vm":[function(require,module,exports) {
-module.exports="/hellophaser/star-bg-1.27fe8a90.png";
+module.exports="/hellophaser/v2/star-bg-1.27fe8a90.png";
 },{}],"hbyH":[function(require,module,exports) {
 "use strict";var t=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function n(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var e=require("./config"),r=require("./Scene1"),n=require("./scrolling-background"),i=require("./utilities/alignGrid.ts"),s=function(s){function o(){var t=s.call(this,"menu")||this;return t.scene1=new r.Scene1,t}return t(o,s),o.prototype.makeAlignGrid=function(t,e){void 0===t&&(t=11),void 0===e&&(e=11),this.aGrid=new i.AlignGrid({scene:this,rows:t,cols:e})},o.prototype.preload=function(){this.scene1.preload.call(this),this.load.image("startBtn",require("../assets/images/start-btn.png")),this.load.image("optionsBtn",require("../assets/images/RonaGun-logo.png")),this.load.image("starBg0",require("../assets/images/star-bg-0.png")),this.load.image("starBg1",require("../assets/images/star-bg-1.png"))},o.prototype.create=function(){var t=this;this.scene1.create.call(this),this.makeAlignGrid(11,11);var r=this.add.sprite(e.config.width/2,e.config.height/2,"startBtn");this.aGrid.placeAtIndex(60,r),r.setInteractive(),r.once("pointerdown",function(){return t.scene.start("playGame")});var i=r.getBottomCenter(),s=i.x,o=i.y,a=this.add.sprite(s,o+r.height,"optionsBtn");this.aGrid.placeAtIndex(27,a),a.setScale(.5),console.log("startBtn.width: ",r.width),console.log("startBtn.height: ",r.height),console.log("startBtn x: ",s),console.log("startBtn y: ",o);this.add.sprite(s-r.width,o-r.height/2,"virus",0);this.backgrounds=[];for(var c=0;c<3;c++){var h=["starBg0","starBg1"],g=h[Phaser.Math.Between(0,h.length-1)],u=new n.ScrollingBackground(this,g,10*c);this.backgrounds.push(u)}},o.prototype.update=function(){for(var t=0;t<this.backgrounds.length;t++)this.backgrounds[t].update()},o}(Phaser.Scene);exports.Menu=s;
 },{"./config":"M5zi","./Scene1":"dov4","./scrolling-background":"MlZH","./utilities/alignGrid.ts":"mPLj","../assets/images/start-btn.png":"o8RG","../assets/images/RonaGun-logo.png":"gchF","../assets/images/star-bg-0.png":"ha7U","../assets/images/star-bg-1.png":"W0vm"}],"u8Os":[function(require,module,exports) {
@@ -2798,4 +2798,4 @@ module.exports="/hellophaser/star-bg-1.27fe8a90.png";
 },{"./Menu.ts":"hbyH","./Scene2.ts":"IyWu"}],"Rgmk":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("./config.ts");window.game=window.game||{};var i={initialize:function(){document.addEventListener("deviceready",this.onDeviceReady.bind(this),!1)},onDeviceReady:function(){this.receivedEvent("deviceready"),window.game=new Phaser.Game(e.config)},receivedEvent:function(e){document.querySelector(".app").setAttribute("style","display:none;"),console.log("Received Event: "+e)}};i.initialize(),window.cordova||setTimeout(function(){var e=document.createEvent("Events");e.initEvent("deviceready",!0,!1),document.dispatchEvent(e)},50);
 },{"./config.ts":"M5zi"}]},{},["Rgmk"], null)
-//# sourceMappingURL=/hellophaser/js.2963c36d.js.map
+//# sourceMappingURL=/hellophaser/v2/js.2963c36d.js.map
