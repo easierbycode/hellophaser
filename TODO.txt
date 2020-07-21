@@ -1,6 +1,6 @@
 NOW
 ===
-- tweak score text opacity
+- exploding goat baddie
 
 
 LATER
