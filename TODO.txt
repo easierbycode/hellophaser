@@ -1,11 +1,13 @@
 NOW
 ===
-- on title screen, clicking special unlocks secret ship
-- exploding goat baddie
+- on title screen, clicking special unlocks secret ship (EvaCola)
 
 
 LATER
 =====
+- add fun human types
+  - unlock human w/ ship.  i.e. EvaCola ship unlocks cool-cokecan "human"
+- exploding goat baddie
 - add ship logic from codeperfectionist enemy
 - get ship trail working
 - asteroid baddie
