@@ -18,6 +18,11 @@ export class Scene1 extends Phaser.Scene {
         this.load.image( 'blue', require('../assets/images/blue.png'));
         
         this.load.image('red', require('../assets/images/red.png'));
+
+        this.load.spritesheet('cyborg-rider', require('../assets/spritesheets/cyborg-rider.png'), {
+            frameWidth: 46,
+            frameHeight: 32
+        });
         
         this.load.image( 'eva-cola', require('../assets/spritesheets/eva-cola.png') );
 
@@ -203,6 +208,13 @@ export class Scene1 extends Phaser.Scene {
             key: 'parachute',
             frames: this.anims.generateFrameNumbers( 'human' ),
             frameRate: 1,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'cyborg-rider',
+            frames: this.anims.generateFrameNumbers( 'cyborg-rider' ),
+            frameRate: 2,
             repeat: -1
         });
     }
