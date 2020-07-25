@@ -19,6 +19,8 @@ export class Scene1 extends Phaser.Scene {
         
         this.load.image('red', require('../assets/images/red.png'));
 
+        this.load.image('cola-machine', require('../assets/images/cola-machine-48x64-sheet.png'));
+
         this.load.spritesheet('cyborg-rider', require('../assets/spritesheets/cyborg-rider.png'), {
             frameWidth: 46,
             frameHeight: 32
