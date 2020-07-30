@@ -8,6 +8,7 @@ import { Sentinel } from './sentinel.ts';
 import { PurpleSparks } from './purple-sparks';
 import { Player } from './player';
 import { Asteroid } from './asteroid';
+import { UfoExplosion } from './ufo_explosion';
 
 
 export class Scene2 extends Phaser.Scene {
@@ -153,7 +154,11 @@ export class Scene2 extends Phaser.Scene {
             case "virus": { 
                 var explosion = new VirusExplosion( this, enemy.x, enemy.y ); 
                 break; 
-            }  
+            }
+            case "ufo": { 
+                var explosion = new UfoExplosion( this, enemy.x, enemy.y );
+                break; 
+            }
             default: { 
                 var explosion = new PurpleSparks(this, enemy.x, enemy.y); 
                 break;              

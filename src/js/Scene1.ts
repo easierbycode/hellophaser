@@ -46,6 +46,11 @@ export class Scene1 extends Phaser.Scene {
             frameHeight: 32
         });
 
+        this.load.spritesheet('ufo-explosion', require('../assets/spritesheets/ufo-explosion.png'), {
+            frameWidth: 32,
+            frameHeight: 30
+        });
+
         this.load.spritesheet('virus', require('../assets/spritesheets/virus.png'), {
             frameWidth: 29,
             frameHeight: 28
@@ -135,6 +140,14 @@ export class Scene1 extends Phaser.Scene {
             frames: this.anims.generateFrameNumbers('virus'),
             frameRate: 20,
             repeat: -1
+        });
+
+        this.anims.create({
+            key: 'ufo_explode',
+            frames: this.anims.generateFrameNumbers('ufo-explosion'),
+            frameRate: 30,
+            repeat: 0,
+            hideOnComplete: true
         });
 
         this.anims.create({
