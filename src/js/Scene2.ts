@@ -38,7 +38,6 @@ export class Scene2 extends Phaser.Scene {
 
         this.scoreLabel.alpha = 0.15;
 
-        this.beamSound = this.sound.add('audio_beam');
         this.explosionSound = this.sound.add('audio_explosion');
         this.pickupSound = this.sound.add('audio_pickup');
 
@@ -96,12 +95,8 @@ export class Scene2 extends Phaser.Scene {
 
         this.player = new Player( this, config.width / 2 - 8, config.height - 64 );
 
-        this.cursorKeys = this.input.keyboard.createCursorKeys();
-
         this.spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-        this.nextShotAt = 0;
-        
         // group to hold all our projectiles
         this.projectiles = this.add.group();
 
@@ -130,11 +125,11 @@ export class Scene2 extends Phaser.Scene {
 
         this.background.tilePositionY -= 0.5;
 
-        this.movePlayerManager();
+        this.player.movePlayerManager();
 
         if (this.input.activePointer.isDown || Phaser.Input.Keyboard.JustDown(this.spacebar)) {
             if (this.player.active) {
-                this.shootBeam();
+                this.player.shoot();
             }
         }
         for (var i = 0; i < this.projectiles.getChildren().length; i++) {
@@ -226,37 +221,6 @@ export class Scene2 extends Phaser.Scene {
         if ( this.player.alpha < 1 || this.player.active == false )  return;
         powerUp.disableBody(true, true);
         this.pickupSound.play();
-    }
-
-    shootBeam() {
-        if (this.nextShotAt > this.game.getTime())  return;
-        var beam = new Beam(this);
-        this.beamSound.play();
-        this.nextShotAt = this.game.getTime() + 100;
-    }
-    
-    movePlayerManager() {
-        this.player.body.setVelocity(0);
-
-        if (this.input.activePointer.isDown) {
-            this.player.x = this.input.activePointer.x;
-            // slighthly above finger position
-            this.player.y = this.input.activePointer.y - 15;
-
-            return;
-        }
-
-        if (this.cursorKeys.left.isDown) {
-            this.player.body.setVelocityX(-gameSettings.playerSpeed);
-        } else if (this.cursorKeys.right.isDown) {
-            this.player.body.setVelocityX(gameSettings.playerSpeed);
-        }
-
-        if (this.cursorKeys.up.isDown) {
-            this.player.body.setVelocityY(-gameSettings.playerSpeed);
-        } else if (this.cursorKeys.down.isDown) {
-            this.player.body.setVelocityY(gameSettings.playerSpeed);
-        }
     }
 
     moveShip(ship, speed) {
