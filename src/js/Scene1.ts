@@ -13,7 +13,7 @@ export class Scene1 extends Phaser.Scene {
         // this.load.image('background', require('../assets/images/background.png'));
 
         // DRJ
-        this.load.image('background', require('../assets/images/everwing-space-bg.png'));
+        this.load.image('background', require('../assets/images/Space_BG_1.png'));
 
         this.load.image( 'blue', require('../assets/images/blue.png'));
         
