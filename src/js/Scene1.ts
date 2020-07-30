@@ -35,9 +35,10 @@ export class Scene1 extends Phaser.Scene {
             frameHeight: 27
         });
         
-        this.load.spritesheet('ship', require('../assets/spritesheets/hatbot.png'), {
-            frameWidth: 15,
-            frameHeight: 10
+
+        this.load.spritesheet('ufo', require('../assets/spritesheets/ufo.png'), {
+            frameWidth: 32,
+            frameHeight: 30
         });
         
         this.load.spritesheet('asteroid', require('../assets/spritesheets/asteroid-face.png'), {
@@ -116,9 +117,9 @@ export class Scene1 extends Phaser.Scene {
         // this.scene.start('menu');
 
         this.anims.create({
-            key: 'ship1_anim',  // ID for this animation
-            frames: this.anims.generateFrameNumbers('ship'),  // array of frames
-            frameRate: 20,  // animation speed - frames per second
+            key: 'ufo_anim',  // ID for this animation
+            frames: this.anims.generateFrameNumbers('ufo'),  // array of frames
+            frameRate: 4,  // animation speed - frames per second
             repeat: -1  // will it loop?  -1 for infinite
         });
 

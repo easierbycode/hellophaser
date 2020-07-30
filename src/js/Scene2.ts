@@ -55,7 +55,7 @@ export class Scene2 extends Phaser.Scene {
 
         this.music.play();
 
-        this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'ship');
+        this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'ufo');
         this.ship2 = new Asteroid(this, config.width/2, config.height/2);
         this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus');
         this.sentinel = new Sentinel( this, -587, 35 );
@@ -65,7 +65,7 @@ export class Scene2 extends Phaser.Scene {
         this.enemies.add(this.ship2);
         this.enemies.add(this.virus);
 
-        this.ship1.play('ship1_anim');
+        this.ship1.play('ufo_anim');
         this.ship2.play('asteroid_anim');
         this.virus.play('virus_anim');
 
