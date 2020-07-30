@@ -40,7 +40,7 @@ export class Scene1 extends Phaser.Scene {
             frameHeight: 10
         });
         
-        this.load.spritesheet('ship2', require('../assets/spritesheets/asteroid-face.png'), {
+        this.load.spritesheet('asteroid', require('../assets/spritesheets/asteroid-face.png'), {
             frameWidth: 33,
             frameHeight: 32
         });
@@ -123,8 +123,8 @@ export class Scene1 extends Phaser.Scene {
         });
 
         this.anims.create({
-            key: 'ship2_anim',
-            frames: this.anims.generateFrameNumbers('ship2'),
+            key: 'asteroid_anim',
+            frames: this.anims.generateFrameNumbers('asteroid'),
             frameRate: 20,
             repeat: -1
         });

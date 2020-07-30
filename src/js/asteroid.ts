@@ -9,6 +9,12 @@ export class Asteroid extends BaseEntity {
 
         var emitter = particles.createEmitter({
             speed: 5,
+            lifespan: {
+                onEmit: (particle: Phaser.GameObjects.Particles.Particle, key: string, value: number) =>
+                {
+                    return Phaser.Math.Between( 200, 300 );
+                }
+            },
             scale: { start: 0.24, end: 0 },
             blendMode: 'ADD'
         });
@@ -18,10 +24,6 @@ export class Asteroid extends BaseEntity {
         this.body.setCircle(this.displayWidth * 0.5);
 
         emitter.startFollow(this);
-
-        scene.time.addEvent({
-            callback: () => this.body.setGravityY(200)
-        });
     }
 
 }

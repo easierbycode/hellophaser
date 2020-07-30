@@ -7,6 +7,7 @@ import Phaser from 'phaser';
 import { Sentinel } from './sentinel.ts';
 import { PurpleSparks } from './purple-sparks';
 import { Player } from './player';
+import { Asteroid } from './asteroid';
 
 
 export class Scene2 extends Phaser.Scene {
@@ -56,7 +57,7 @@ export class Scene2 extends Phaser.Scene {
         this.music.play();
 
         this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'ship');
-        this.ship2 = this.add.sprite(config.width/2, config.height/2, 'ship2');
+        this.ship2 = new Asteroid(this, config.width/2, config.height/2);
         this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus');
         this.sentinel = new Sentinel( this, -587, 35 );
 
@@ -66,7 +67,7 @@ export class Scene2 extends Phaser.Scene {
         this.enemies.add(this.virus);
 
         this.ship1.play('ship1_anim');
-        this.ship2.play('ship2_anim');
+        this.ship2.play('asteroid_anim');
         this.virus.play('virus_anim');
 
         this.powerUps = this.physics.add.group();
