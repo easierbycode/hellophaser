@@ -56,6 +56,8 @@ export class Scene2 extends Phaser.Scene {
 
         this.music.play();
 
+        this.sound.pauseOnBlur = false;
+
         this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'ufo');
         this.ship2 = new Asteroid(this, config.width/2, config.height/2);
         this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus');
