@@ -71,7 +71,7 @@ export class Player extends Phaser.GameObjects.Sprite {
                 { key: 'ship-boy', frame: 15 },
                 { key: 'ship-boy', frame: 14 }
             ],
-            frameRate   : 20,
+            frameRate   : 4,
             repeat      : 0
         });
 
@@ -113,5 +113,9 @@ export class Player extends Phaser.GameObjects.Sprite {
         if ( this.alpha < 1 || this.active == false )  return;
         powerUp.disableBody( true, true );
         this.pickupSound.play();
+        this.play( 'ship-boy-powerup' );
+        this.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
+            this.setFrame( 0 );
+        });
     }
 }
