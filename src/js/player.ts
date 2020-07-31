@@ -10,6 +10,7 @@ export class Player extends Phaser.GameObjects.Sprite {
         scene.physics.world.enableBody( this );
 
         this.beamSound = scene.sound.add( 'audio_beam' );
+        this.pickupSound = scene.sound.add( 'audio_pickup' );
         
         this.cursorKeys = scene.input.keyboard.createCursorKeys();
 
@@ -74,4 +75,9 @@ export class Player extends Phaser.GameObjects.Sprite {
         }
     }
 
+    pickPowerUp( player, powerUp ) {
+        if ( this.alpha < 1 || this.active == false )  return;
+        powerUp.disableBody( true, true );
+        this.pickupSound.play();
+    }
 }

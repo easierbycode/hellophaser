@@ -40,7 +40,6 @@ export class Scene2 extends Phaser.Scene {
         this.scoreLabel.alpha = 0.15;
 
         this.explosionSound = this.sound.add('audio_explosion');
-        this.pickupSound = this.sound.add('audio_pickup');
 
         var musicConfig: Phaser.Types.Sound.SoundConfig = {
             mute: false,
@@ -107,7 +106,7 @@ export class Scene2 extends Phaser.Scene {
             projectile.destroy();
         });
 
-        this.physics.add.overlap(this.player, this.powerUps, this.pickPowerUp, null, this);
+        this.physics.add.overlap(this.player, this.powerUps, this.player.pickPowerUp, null, this.player);
 
         this.physics.add.overlap(this.player, this.enemies, this.hurtPlayer, null, this);
 
@@ -222,12 +221,6 @@ export class Scene2 extends Phaser.Scene {
             },
             callbackScope: this
         });
-    }
-
-    pickPowerUp(player, powerUp) {
-        if ( this.player.alpha < 1 || this.player.active == false )  return;
-        powerUp.disableBody(true, true);
-        this.pickupSound.play();
     }
 
     moveShip(ship, speed) {
