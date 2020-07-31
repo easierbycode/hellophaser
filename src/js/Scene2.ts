@@ -108,7 +108,7 @@ export class Scene2 extends Phaser.Scene {
 
         this.physics.add.overlap(this.player, this.powerUps, this.player.pickPowerUp, null, this.player);
 
-        this.physics.add.overlap(this.player, this.enemies, this.hurtPlayer, null, this);
+        this.physics.add.overlap(this.player, this.enemies, this.player.hurtPlayer, null, this.player);
 
         this.physics.add.overlap(this.projectiles, this.enemies, this.hitEnemy, null, this);
 
@@ -173,54 +173,6 @@ export class Scene2 extends Phaser.Scene {
         this.scoreLabel.text = `SCORE ${scoreFormatted}`;
 
         this.explosionSound.play();
-    }
-
-    hurtPlayer(player, enemy) {
-        if ( this.player.alpha < 1 || this.player.active == false )  return;
-
-        this.resetShipPos( enemy );
-
-        navigator.vibrate(Infinity);
-
-        var explosion = new Explosion(this, player.x, player.y);
-
-        this.player.emitter.setVisible( false );
-        this.player.setActive( false );
-        this.player.setVisible( false );
-
-        this.time.addEvent({
-            delay: 1000,
-            callback: () => {
-                navigator.vibrate(0);
-                this.resetPlayer();
-            },
-            callbackScope: this,
-            loop: false
-        });
-    }
-
-    resetPlayer() {
-        var x = config.width / 2 - 8;
-        var y = config.height + 64;
-
-        this.player.x = x;
-        this.player.y = y;
-        this.player.setActive( true );
-        this.player.setVisible( true );
-        this.player.alpha = 0.5;
-
-        var tween = this.tweens.add({
-            targets: this.player,
-            y: config.height - 64,
-            ease: 'Power1',
-            duration: 1500,
-            repeat: 0,
-            onComplete: function() {
-                this.player.alpha = 1;
-                this.player.emitter.setVisible( true );
-            },
-            callbackScope: this
-        });
     }
 
     moveShip(ship, speed) {

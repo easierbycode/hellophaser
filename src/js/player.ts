@@ -1,6 +1,8 @@
 
 import {Beam} from './beam.ts';
 import {gameSettings} from './game-settings.ts';
+import { Explosion } from './explosion';
+import { config } from './config';
 
 
 export class Player extends Phaser.GameObjects.Sprite {
@@ -76,6 +78,54 @@ export class Player extends Phaser.GameObjects.Sprite {
         });
 
         scene.add.existing( this );
+    }
+
+    hurtPlayer( player, enemy ) {
+        if ( this.alpha < 1 || this.active == false )  return;
+
+        this.scene.resetShipPos( enemy );
+
+        navigator.vibrate(Infinity);
+
+        var explosion = new Explosion(this.scene, player.x, player.y);
+
+        this.emitter.setVisible( false );
+        this.setActive( false );
+        this.setVisible( false );
+
+        this.scene.time.addEvent({
+            delay: 1000,
+            callback: () => {
+                navigator.vibrate(0);
+                this.resetPlayer();
+            },
+            callbackScope: this,
+            loop: false
+        });
+    }
+
+    resetPlayer() {
+        var x = config.width / 2 - 8;
+        var y = config.height + 64;
+
+        this.x = x;
+        this.y = y;
+        this.setActive( true );
+        this.setVisible( true );
+        this.alpha = 0.5;
+
+        var tween = this.scene.tweens.add({
+            targets: this,
+            y: config.height - 64,
+            ease: 'Power1',
+            duration: 1500,
+            repeat: 0,
+            onComplete: function() {
+                this.alpha = 1;
+                this.emitter.setVisible( true );
+            },
+            callbackScope: this
+        });
     }
 
     shoot() {
