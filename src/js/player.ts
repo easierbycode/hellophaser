@@ -41,6 +41,40 @@ export class Player extends Phaser.GameObjects.Sprite {
         this.body.setCollideWorldBounds(true);
         this.setScale( 0.25 );
         this.emitter.startFollow( this );
+
+        scene.anims.create({
+            key         : 'ship-boy-death',
+            frames      : [
+                { key: 'ship-boy', frame: 1 },
+                { key: 'ship-boy', frame: 2 },
+                { key: 'ship-boy', frame: 3 },
+                { key: 'ship-boy', frame: 4 },
+                { key: 'ship-boy', frame: 5 },
+                { key: 'ship-boy', frame: 6 },
+                { key: 'ship-boy', frame: 7 },
+                { key: 'ship-boy', frame: 8 },
+                { key: 'ship-boy', frame: 9 },
+                { key: 'ship-boy', frame: 10 },
+                { key: 'ship-boy', frame: 11 },
+                { key: 'ship-boy', frame: 12 },
+                { key: 'ship-boy', frame: 13 }
+            ],
+            frameRate   : 26,
+            repeat      : 0
+        });
+
+        scene.anims.create({
+            key         : 'ship-boy-powerup',
+            frames      : [
+                { key: 'ship-boy', frame: 15 },
+                { key: 'ship-boy', frame: 14 },
+                { key: 'ship-boy', frame: 15 },
+                { key: 'ship-boy', frame: 14 }
+            ],
+            frameRate   : 20,
+            repeat      : 0
+        });
+
         scene.add.existing( this );
     }
 
