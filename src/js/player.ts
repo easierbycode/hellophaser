@@ -61,7 +61,7 @@ export class Player extends Phaser.GameObjects.Sprite {
                 { key: 'ship-boy', frame: 12 },
                 { key: 'ship-boy', frame: 13 }
             ],
-            frameRate   : 26,
+            duration    : 1000,
             repeat      : 0
         });
 
@@ -85,22 +85,20 @@ export class Player extends Phaser.GameObjects.Sprite {
 
         this.scene.resetShipPos( enemy );
 
+        this.emitter.setVisible( false );
+
+        this.alpha = 0.5;
+
         navigator.vibrate(Infinity);
 
         var explosion = new Explosion(this.scene, player.x, player.y);
-
-        this.emitter.setVisible( false );
-        this.setActive( false );
-        this.setVisible( false );
-
-        this.scene.time.addEvent({
-            delay: 1000,
-            callback: () => {
-                navigator.vibrate(0);
-                this.resetPlayer();
-            },
-            callbackScope: this,
-            loop: false
+        
+        this.play( 'ship-boy-death' );
+        this.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
+            this.setActive( false );
+            this.setVisible( false );
+            navigator.vibrate(0);
+            this.resetPlayer();
         });
     }
 
@@ -110,9 +108,9 @@ export class Player extends Phaser.GameObjects.Sprite {
 
         this.x = x;
         this.y = y;
+        this.setFrame( 0 );
         this.setActive( true );
         this.setVisible( true );
-        this.alpha = 0.5;
 
         var tween = this.scene.tweens.add({
             targets: this,

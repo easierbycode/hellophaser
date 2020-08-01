@@ -123,11 +123,11 @@ export class Scene2 extends Phaser.Scene {
 
         this.background.tilePositionY -= 0.5;
 
-        this.player.movePlayerManager();
+        if (this.player.active && this.player.alpha == 1) {
+            this.player.movePlayerManager();
 
-        if (this.input.activePointer.isDown || Phaser.Input.Keyboard.JustDown(this.spacebar)) {
-            if (this.player.active) {
-                this.player.shoot();
+            if (this.input.activePointer.isDown || Phaser.Input.Keyboard.JustDown(this.spacebar)) {
+                    this.player.shoot();
             }
         }
         for (var i = 0; i < this.projectiles.getChildren().length; i++) {
