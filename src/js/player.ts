@@ -80,7 +80,7 @@ export class Player extends Phaser.GameObjects.Sprite {
         scene.add.existing( this );
     }
 
-    hurtPlayer( player, enemy ) {
+    damage( player, enemy ) {
         if ( this.alpha < 1 || this.active == false )  return;
 
         this.scene.resetShipPos( enemy );

@@ -108,7 +108,7 @@ export class Scene2 extends Phaser.Scene {
 
         this.physics.add.overlap(this.player, this.powerUps, this.player.pickPowerUp, null, this.player);
 
-        this.physics.add.overlap(this.player, this.enemies, this.player.hurtPlayer, null, this.player);
+        this.physics.add.overlap(this.player, this.enemies, this.player.damage, null, this.player);
 
         this.physics.add.overlap(this.projectiles, this.enemies, this.hitEnemy, null, this);
 
