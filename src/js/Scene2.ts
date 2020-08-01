@@ -112,11 +112,7 @@ export class Scene2 extends Phaser.Scene {
 
         this.physics.add.overlap(this.projectiles, this.enemies, this.hitEnemy, null, this);
 
-
-        this.physics.add.overlap(this.projectiles, this.sentinel, (projectile, enemy) => {
-            projectile.destroy();
-            enemy.damage();
-        }, null, this);
+        this.physics.add.overlap(this.sentinel, this.projectiles, this.sentinel.damage, null, this.sentinel);
     }
 
     // //  loop which runs continuously

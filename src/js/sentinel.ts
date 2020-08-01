@@ -16,7 +16,9 @@ export class Sentinel extends Phaser.GameObjects.Sprite {
         this.health = 10;
     }
 
-    damage( damagePoints = 1 ) {
+    damage( sentinel, enemy ) {
+        enemy.destroy();
+        let damagePoints = enemy.damagePoints || 1;
         this.health -= damagePoints;
         if ( this.health == 0 ) {
             this.body.velocity.x = 0;
