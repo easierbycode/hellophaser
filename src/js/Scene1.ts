@@ -26,6 +26,8 @@ export class Scene1 extends Phaser.Scene {
             frameHeight: 32
         });
         
+        this.load.image( 'D', require('../assets/images/D.png') );
+        
         this.load.image( 'eva-cola', require('../assets/spritesheets/eva-cola.png') );
 
         this.load.spritesheet( 'ship-boy', require('../assets/spritesheets/ship-boy.png'), {
