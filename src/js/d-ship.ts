@@ -48,7 +48,7 @@ export class D extends Phaser.GameObjects.Sprite {
     }
 
     damage( player, enemy ) {
-        if ( this.alpha < 1 || this.active == false )  return;
+        if ( this.alpha < 1 )  return;
 
         this.scene.resetShipPos( enemy );
 
@@ -60,7 +60,6 @@ export class D extends Phaser.GameObjects.Sprite {
 
         var explosion = new Explosion(this.scene, player.x, player.y);
         
-        this.setActive( false );
         this.setVisible( false );
         navigator.vibrate(0);
         this.resetPlayer();
@@ -72,7 +71,6 @@ export class D extends Phaser.GameObjects.Sprite {
 
         this.x = x;
         this.y = y;
-        this.setActive( true );
         this.setVisible( true );
 
         var tween = this.scene.tweens.add({
@@ -121,7 +119,7 @@ export class D extends Phaser.GameObjects.Sprite {
     }
 
     pickPowerUp( player, powerUp ) {
-        if ( this.alpha < 1 || this.active == false )  return;
+        if ( this.alpha < 1 )  return;
         powerUp.disableBody( true, true );
         this.pickupSound.play();
     }

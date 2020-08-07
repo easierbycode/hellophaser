@@ -81,7 +81,7 @@ export class Player extends Phaser.GameObjects.Sprite {
     }
 
     damage( player, enemy ) {
-        if ( this.alpha < 1 || this.active == false )  return;
+        if ( this.alpha < 1 )  return;
 
         this.scene.resetShipPos( enemy );
 
@@ -95,7 +95,6 @@ export class Player extends Phaser.GameObjects.Sprite {
         
         this.play( 'ship-boy-death' );
         this.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
-            this.setActive( false );
             this.setVisible( false );
             navigator.vibrate(0);
             this.resetPlayer();
@@ -109,7 +108,6 @@ export class Player extends Phaser.GameObjects.Sprite {
         this.x = x;
         this.y = y;
         this.setFrame( 0 );
-        this.setActive( true );
         this.setVisible( true );
 
         var tween = this.scene.tweens.add({

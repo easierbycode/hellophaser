@@ -123,7 +123,7 @@ export class Scene2 extends Phaser.Scene {
 
         this.background.tilePositionY -= 0.5;
 
-        if (this.player.active && this.player.alpha == 1) {
+        if (this.player.alpha == 1) {
             this.player.movePlayerManager();
 
             if (this.input.activePointer.isDown || Phaser.Input.Keyboard.JustDown(this.spacebar)) {
