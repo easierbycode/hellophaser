@@ -31,8 +31,28 @@ export class Scene2 extends Phaser.Scene {
         window.addEventListener('resize', this.resize.bind(this));
         this.resize();
 
-        this.background = this.add.tileSprite(0, 0, config.width, config.height, 'background');
-        this.background.setOrigin(0, 0);
+        var colors = [0x72747D, 0x3C3E45, 0xe5e7f0, 0xafb1b8, 0xff0099, 0xf3f315, 0x83f52c, 0x630dd0];
+        var particles = this.add.particles( 'star' );
+        var rect = new Phaser.Geom.Rectangle( 0, 0, config.width, config.height );
+        var stars = particles.createEmitter({
+            alpha           : {
+                random: [0.75, 0.85]
+            },
+            bounds          : rect,
+            collideBottom   : false,
+            frequency       : 100,
+            lifespan        : 6000,
+            speedY  : {
+                min : 60,
+                max : 100
+            },
+            tint    : (particle: Phaser.GameObjects.Particles.Particle, key: string, value: number) => {
+                return Phaser.Utils.Array.GetRandom( colors );
+            },
+            x       : {
+                random: [0, config.width]
+            }
+        });
         
         this.score = 0;
         this.scoreLabel = this.add.bitmapText(10, 5, 'pixelFont', 'SCORE ', 16);
@@ -120,8 +140,6 @@ export class Scene2 extends Phaser.Scene {
         this.moveShip(this.ship1, 1);
         this.moveShip(this.ship2, 2);
         this.moveShip(this.virus, 3);
-
-        this.background.tilePositionY -= 0.5;
 
         if (this.player.alpha == 1) {
             this.player.movePlayerManager();

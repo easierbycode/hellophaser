@@ -8,13 +8,6 @@ export class Scene1 extends Phaser.Scene {
     }
 
     preload() {
-        // this.load.image('asteroid', require('../assets/images/asteroid-face.png'));
-        // this.load.image('background', './assets/images/background.png');
-        // this.load.image('background', require('../assets/images/background.png'));
-
-        // DRJ
-        this.load.image('background', require('../assets/images/Space_BG_1.png'));
-
         this.load.image( 'blue', require('../assets/images/blue.png'));
         
         this.load.image('red', require('../assets/images/red.png'));
@@ -29,6 +22,8 @@ export class Scene1 extends Phaser.Scene {
         this.load.image( 'D', require('../assets/images/D.png') );
         
         this.load.image( 'eva-cola', require('../assets/spritesheets/eva-cola.png') );
+
+        this.load.image( 'star', require('../assets/images/star.png'));
 
         this.load.spritesheet( 'ship-boy', require('../assets/spritesheets/ship-boy.png'), {
             frameWidth: 117,
