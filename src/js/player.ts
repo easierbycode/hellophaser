@@ -83,6 +83,11 @@ export class Player extends Phaser.GameObjects.Sprite {
     }
 
     boost() {
+        // restart if already boosting
+        if ( this.scene.juice.spinXTween ) {
+            return this.scene.juice.spinXTween.restart();
+        }
+        
         this.scene.music.setRate( 1.5 );
         this.boosting = true;
         this.scene.stars.setSpeedY( 425 );
