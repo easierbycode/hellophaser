@@ -8,7 +8,8 @@ import { config } from './config';
 export class Player extends Phaser.GameObjects.Sprite {
     
     constructor( scene: Phaser.Scene, x: number, y: number ) {
-        super( scene, x, y, 'ship-boy' );
+        // super( scene, x, y, 'ship-boy' );
+        super( scene, x, y, 'angry-nerd' );
         scene.physics.world.enableBody( this );
 
         this.beamSound = scene.sound.add( 'audio_beam' );
@@ -37,11 +38,12 @@ export class Player extends Phaser.GameObjects.Sprite {
             blendMode: 'ADD'
         });
 
+        this.boosting = false;
         this.nextShotAt = 0;
         this.scene = scene;
 
         this.body.setCollideWorldBounds(true);
-        this.setScale( 0.25 );
+        // this.setScale( 0.25 );
         this.emitter.startFollow( this );
 
         scene.anims.create({
@@ -77,28 +79,62 @@ export class Player extends Phaser.GameObjects.Sprite {
             repeat      : 0
         });
 
-        scene.add.existing( this );
+        scene.add.existing( this ); 
+    }
+
+    boost() {
+        this.scene.music.setRate( 1.5 );
+        this.boosting = true;
+        this.scene.stars.setSpeedY( 425 );
+        this.scene.stars.frequency = 50;
+
+        this.emitter.setSpeed( 375 );
+
+        this.scene.juice.spinX( this, true, {
+            duration: 250,
+            repeat: 16,
+            onComplete: () => {
+                this.scene.music.setRate( 1 );
+
+                this.scene.stars.setSpeedY({
+                    min : 60,
+                    max : 100
+                });
+                this.scene.stars.frequency = 100;
+
+                this.emitter.setSpeed( 125 );
+
+                this.boosting = false;
+            }
+        });
     }
 
     damage( player, enemy ) {
         if ( this.alpha < 1 )  return;
 
-        this.scene.resetShipPos( enemy );
-
-        this.emitter.setVisible( false );
-
-        this.alpha = 0.5;
-
-        navigator.vibrate(Infinity);
-
-        var explosion = new Explosion(this.scene, player.x, player.y);
+        // invincible while boosting
+        if ( this.boosting ) {
+            this.scene.hitEnemy( null, enemy );
         
-        this.play( 'ship-boy-death' );
-        this.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
-            this.setVisible( false );
-            navigator.vibrate(0);
-            this.resetPlayer();
-        });
+        } else {
+            this.scene.resetShipPos( enemy );
+
+            this.emitter.setVisible( false );
+
+            this.alpha = 0.5;
+
+            navigator.vibrate(Infinity);
+
+            var explosion = new Explosion(this.scene, player.x, player.y);
+            
+            // this.play( 'ship-boy-death' );
+            // this.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
+            explosion.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
+                this.setVisible( false );
+                navigator.vibrate(0);
+                this.resetPlayer();
+            });
+        }
     }
 
     resetPlayer() {
@@ -107,7 +143,7 @@ export class Player extends Phaser.GameObjects.Sprite {
 
         this.x = x;
         this.y = y;
-        this.setFrame( 0 );
+        // this.setFrame( 0 );
         this.setVisible( true );
 
         var tween = this.scene.tweens.add({
@@ -159,9 +195,10 @@ export class Player extends Phaser.GameObjects.Sprite {
         if ( this.alpha < 1 || this.active == false )  return;
         powerUp.disableBody( true, true );
         this.pickupSound.play();
-        this.play( 'ship-boy-powerup' );
-        this.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
-            this.setFrame( 0 );
-        });
+        this.boost();
+        // this.play( 'ship-boy-powerup' );
+        // this.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
+        //     this.setFrame( 0 );
+        // });
     }
 }

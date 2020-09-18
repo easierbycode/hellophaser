@@ -8,6 +8,8 @@ export class Scene1 extends Phaser.Scene {
     }
 
     preload() {
+        this.load.image( 'angry-nerd', require('../assets/images/angry-nerd.png'));
+        
         this.load.image( 'blue', require('../assets/images/blue.png'));
         
         this.load.image('red', require('../assets/images/red.png'));

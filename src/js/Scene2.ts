@@ -34,7 +34,7 @@ export class Scene2 extends Phaser.Scene {
         var colors = [0x72747D, 0x3C3E45, 0xe5e7f0, 0xafb1b8, 0xff0099, 0xf3f315, 0x83f52c, 0x630dd0];
         var particles = this.add.particles( 'star' );
         var rect = new Phaser.Geom.Rectangle( 0, 0, config.width, config.height );
-        var stars = particles.createEmitter({
+        this.stars = particles.createEmitter({
             alpha           : {
                 random: [0.75, 0.85]
             },
@@ -93,7 +93,7 @@ export class Scene2 extends Phaser.Scene {
 
         this.powerUps = this.physics.add.group();
 
-        var maxObjects = 4;
+        var maxObjects = 2; //4;
 
         for (var i = 0; i < maxObjects; i++) {
             var powerUp = this.physics.add.sprite(16, 16, 'power-up');
@@ -180,7 +180,7 @@ export class Scene2 extends Phaser.Scene {
             } 
         }
 
-        projectile.destroy();
+        if ( projectile )  projectile.destroy();
         this.resetShipPos(enemy);
         this.score += 15;
         var scoreFormatted = this.zeroPad(this.score, 6);
@@ -190,7 +190,12 @@ export class Scene2 extends Phaser.Scene {
     }
 
     moveShip(ship, speed) {
-        ship.y += speed;
+        if ( this.player.boosting ) {
+            ship.y += speed * 4;
+        } else {
+            ship.y += speed;
+        }
+
         if (ship.y > config.height) {
             this.resetShipPos(ship);
         }
