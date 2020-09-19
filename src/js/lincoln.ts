@@ -14,6 +14,7 @@ export class Lincoln extends BaseEntity {
 
         this.body.setCollideWorldBounds(true);
         
+        this.boosting = false;
         this.nextShotAt = 0;
 
         this.beamSound = scene.sound.add( 'audio_beam', {
@@ -69,24 +70,62 @@ export class Lincoln extends BaseEntity {
         this.play( 'lincoln-fly' );
     }
 
+    boost() {
+        // restart if already boosting
+        if ( this.scene.juice.spinXTween && this.scene.juice.spinXTween.isPlaying() ) {
+            return this.scene.juice.spinXTween.restart();
+        }
+        
+        this.scene.music.setRate( 1.5 );
+        this.boosting = true;
+        this.scene.stars.setSpeedY( 425 );
+        this.scene.stars.frequency = 50;
+
+        this.emitter.setSpeed( 375 );
+
+        this.scene.juice.spinX( this, true, {
+            duration: 250,
+            repeat: 16,
+            onComplete: () => {
+                this.scene.music.setRate( 1 );
+
+                this.scene.stars.setSpeedY({
+                    min : 60,
+                    max : 100
+                });
+                this.scene.stars.frequency = 100;
+
+                this.emitter.setSpeed( 125 );
+
+                this.boosting = false;
+            }
+        });
+    }
+
     damage( player, enemy ) {
         if ( this.alpha < 1 )  return;
 
-        this.scene.resetShipPos( enemy );
-
-        this.emitter.setVisible( false );
-
-        this.alpha = 0.5;
-
-        navigator.vibrate(Infinity);
-
-        var explosion = new Explosion(this.scene, player.x, player.y);
+        // invincible while boosting
+        if ( this.boosting ) {
+            this.scene.hitEnemy( null, enemy );
         
-        explosion.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
-            this.setVisible( false );
-            navigator.vibrate(0);
-            this.resetPlayer();
-        });
+        } else {
+            this.scene.resetShipPos( enemy );
+
+            this.emitter.setVisible( false );
+
+            this.alpha = 0.5;
+
+            navigator.vibrate(Infinity);
+
+            var explosion = new Explosion(this.scene, player.x, player.y);
+            
+            explosion.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
+                this.setVisible( false );
+                navigator.vibrate(0);
+                this.resetPlayer();
+            });
+        }
     }
 
     resetPlayer() {
@@ -147,5 +186,6 @@ export class Lincoln extends BaseEntity {
         if ( this.alpha < 1 )  return;
         powerUp.disableBody( true, true );
         this.pickupSound.play();
+        this.boost();
     }
 }
