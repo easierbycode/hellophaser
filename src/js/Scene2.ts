@@ -9,6 +9,7 @@ import { PurpleSparks } from './purple-sparks';
 import { Player } from './player';
 import { Asteroid } from './asteroid';
 import { UfoExplosion } from './ufo_explosion';
+import { Lincoln } from './lincoln';
 
 
 export class Scene2 extends Phaser.Scene {
@@ -59,7 +60,9 @@ export class Scene2 extends Phaser.Scene {
 
         this.scoreLabel.alpha = 0.15;
 
-        this.explosionSound = this.sound.add('audio_explosion');
+        this.explosionSound = this.sound.add('audio_explosion', {
+            volume: 0.4
+        });
 
         var musicConfig: Phaser.Types.Sound.SoundConfig = {
             mute: false,
@@ -115,7 +118,7 @@ export class Scene2 extends Phaser.Scene {
             powerUp.setBounce(1);
         }
 
-        this.player = new Player( this, config.width / 2 - 8, config.height - 64 );
+        this.player = new Lincoln( this, config.width / 2 - 8, config.height - 64 );
 
         this.spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 

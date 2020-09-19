@@ -9,6 +9,8 @@ export class BaseEntity extends Phaser.GameObjects.Sprite {
         this.scene = scene;
         this.scene.add.existing(this);
         this.scene.physics.world.enableBody(this, 0);
+
+        this.on('animationcomplete', (anim, frame) => this.emit('animationcomplete_' + anim.key, anim, frame));
     }
 
 }

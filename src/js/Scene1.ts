@@ -34,6 +34,15 @@ export class Scene1 extends Phaser.Scene {
             frameWidth: 16,
             frameHeight: 27
         });
+
+        this.load.spritesheet('lincoln', require('../assets/spritesheets/lincoln.png'), {
+            frameWidth: 27,
+            frameHeight: 58
+        });
+        this.load.spritesheet('lincoln-fireball', require('../assets/spritesheets/lincoln-fireball.png'), {
+            frameWidth: 9,
+            frameHeight: 22
+        });
         
 
         this.load.spritesheet('ufo', require('../assets/spritesheets/ufo.png'), {
