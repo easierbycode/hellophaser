@@ -34,6 +34,8 @@ export class Sentinel extends Phaser.GameObjects.Sprite {
                 }, 500 );
                 
             }, 500 );
+        } else {
+            this.scene.juice.flash( this );
         }
     }
 
