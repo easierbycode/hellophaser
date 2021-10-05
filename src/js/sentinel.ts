@@ -5,7 +5,13 @@ import { Human } from './human';
 
 export class Sentinel extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y) {
-        super( scene, x, y, 'sentinel' );
+        
+        // super( scene, x, y, 'sentinel' );
+        // super( scene, x, y, 'mars-dodo' );
+        // super( scene, x, y, 'monkey-flying-carpet' );
+        // super( scene, x, y, 'clown-balloons' );
+        super( scene, x, y, 'ronald' );
+        
         this.scene = scene;
         
         scene.add.existing( this );
@@ -13,6 +19,12 @@ export class Sentinel extends Phaser.GameObjects.Sprite {
         this.body.velocity.x = 50;
 
         // this.play( 'drop_cargo' );
+
+        // this.play( 'mars_dodo.default' );
+        // this.play( 'monkey_flying_carpet.default' );
+        // this.play( 'clown_balloons.default' );
+        this.play( 'ronald.default' );
+
         this.health = 10;
     }
 
@@ -22,7 +34,10 @@ export class Sentinel extends Phaser.GameObjects.Sprite {
         this.health -= damagePoints;
         if ( this.health == 0 ) {
             this.body.velocity.x = 0;
-            this.play( 'drop_cargo' );
+            
+            // this.play( 'monkey_flying_carpet.hit' );
+            // this.play( 'clown_balloons.hit' );
+            
             setTimeout( () => {
                 let {x, y} = this.getTopLeft();
                 x += 61;

@@ -10,6 +10,9 @@ import { Player } from './player';
 import { Asteroid } from './asteroid';
 import { UfoExplosion } from './ufo_explosion';
 import { Lincoln } from './lincoln';
+import { EyeFlyExplosion } from './eye-fly-explosion';
+import { UniBlinkyExplosion } from './uniblinky-explosion';
+import { Seductress } from './seductress';
 
 
 export class Scene2 extends Phaser.Scene {
@@ -80,19 +83,58 @@ export class Scene2 extends Phaser.Scene {
 
         this.sound.pauseOnBlur = false;
 
-        this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'ufo');
+        // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'ufo');
+        // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'hatbot-gunner');
+        // this.time.addEvent({
+        //     delay: 2500,
+        //     callback: () => this.ship1.play('hatbot_gunner.aim_cannon')
+        // })
+        // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'alien-skull');
+        // this.time.addEvent({
+        //     delay: 8000,
+        //     callback: () => this.ship1.play('alien_skull.aim_cannon')
+        // })
+        // this.ship1.on('animationcomplete-alien_skull.aim_cannon', () => {
+        //     this.time.addEvent({
+        //         delay: 1000,
+        //         callback: () => this.ship1.play('alien_skull.default')
+        //     })
+        // })
+
+        // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'mouthman');
+        // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'cheerleader-blonde');
+        // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'floppy');
+        // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'eye-fly');
+        this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'blue-angel');
+
         this.ship2 = new Asteroid(this, config.width/2, config.height/2);
-        this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus');
+        // this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus');
+        // this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'hatbot-jetpack');
+        // this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus-v2');
+        this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'uniblinky');
         this.sentinel = new Sentinel( this, -587, 35 );
+
+        this.seductress = new Seductress( this, -787, 0 );
 
         this.enemies = this.physics.add.group();
         this.enemies.add(this.ship1);
         this.enemies.add(this.ship2);
         this.enemies.add(this.virus);
 
-        this.ship1.play('ufo_anim');
+        // this.ship1.play('ufo_anim');
+        // this.ship1.play('hatbot_gunner.default');
+        // this.ship1.play('alien_skull.default');
+        // this.ship1.play('mouthman.default');
+        // this.ship1.play('cheerleader_blonde.default');
+        // this.ship1.play('floppy.default');
+        // this.ship1.play('eye_fly.default');
+        this.ship1.play('blue_angel.default');
+
         this.ship2.play('asteroid_anim');
-        this.virus.play('virus_anim');
+        // this.virus.play('virus_anim');
+        // this.virus.play('hatbot_jetpack.default');
+        // this.virus.play('virus_v2.default');
+        this.virus.play('uniblinky.default');
 
         this.powerUps = this.physics.add.group();
 
@@ -136,6 +178,7 @@ export class Scene2 extends Phaser.Scene {
         this.physics.add.overlap(this.projectiles, this.enemies, this.hitEnemy, null, this);
 
         this.physics.add.overlap(this.sentinel, this.projectiles, this.sentinel.damage, null, this.sentinel);
+        this.physics.add.overlap(this.seductress, this.projectiles, this.seductress.damage, null, this.seductress);
     }
 
     // //  loop which runs continuously
@@ -175,6 +218,14 @@ export class Scene2 extends Phaser.Scene {
             }
             case "ufo": { 
                 var explosion = new UfoExplosion( this, enemy.x, enemy.y );
+                break; 
+            }
+            case "uniblinky": { 
+                var explosion = new UniBlinkyExplosion( this, enemy.x, enemy.y );
+                break; 
+            }
+            case "eye-fly": { 
+                var explosion = new EyeFlyExplosion( this, enemy.x, enemy.y );
                 break; 
             }
             default: { 

@@ -5,7 +5,10 @@ const MAXSPEED = 25;
 export class Human extends Phaser.GameObjects.Sprite {
 
     constructor( scene: Phaser.Scene, x: number, y: number ) {
-        super( scene, x, y, 'human' );
+        
+        // super( scene, x, y, 'human' );
+        super( scene, x, y, 'fairy' );
+        
         scene.add.existing( this );
         scene.physics.world.enableBody( this );
         this.body.velocity.x = -MAXSPEED;
