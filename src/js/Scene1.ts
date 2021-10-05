@@ -234,7 +234,7 @@ export class Scene1 extends Phaser.Scene {
         // this.scene.start('menu');
 
         this.anims.create({
-            key: 'ufo_anim',  // ID for this animation
+            key: 'ufo.default',  // ID for this animation
             frames: this.anims.generateFrameNumbers('ufo'),  // array of frames
             frameRate: 4,  // animation speed - frames per second
             repeat: -1  // will it loop?  -1 for infinite
@@ -468,7 +468,7 @@ export class Scene1 extends Phaser.Scene {
         });
 
         this.anims.create({
-            key: 'virus_anim',
+            key: 'virus.default',
             frames: this.anims.generateFrameNumbers('virus'),
             frameRate: 20,
             repeat: -1

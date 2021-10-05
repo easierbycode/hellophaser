@@ -83,7 +83,41 @@ export class Scene2 extends Phaser.Scene {
 
         this.sound.pauseOnBlur = false;
 
+        let delayedAdd1 = (spriteKey: string, delay: number) => {
+            this.time.addEvent({
+                delay,
+                callback: () => {
+                    this.ship1.destroy();
+                    
+                    this.ship1 = this.add.sprite( config.width/2 - 50, config.height/2, spriteKey );
+                    this.ship1.play( `${spriteKey.replace('-', '_')}.default` );
+                    
+                    this.enemies.add( this.ship1 );
+                    
+                    this.resetShipPos( this.ship1 );
+                }
+            })
+        }
+
+        let delayedAddVirus = (spriteKey: string, delay: number) => {
+            this.time.addEvent({
+                delay,
+                callback: () => {
+                    this.virus.destroy();
+                    
+                    this.virus = this.add.sprite( config.width/2 - 50, config.height/2, spriteKey );
+                    this.virus.play( `${spriteKey.replace('-', '_')}.default` );
+                    
+                    this.enemies.add( this.virus );
+                    
+                    this.resetShipPos( this.virus );
+                }
+            })
+        }
+
         // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'ufo');
+        delayedAdd1( 'ufo', 10000 )
+
         // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'hatbot-gunner');
         // this.time.addEvent({
         //     delay: 2500,
@@ -102,26 +136,42 @@ export class Scene2 extends Phaser.Scene {
         // })
 
         // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'mouthman');
+        delayedAdd1( 'mouthman', 20000 )
+
         // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'cheerleader-blonde');
+        delayedAdd1( 'cheerleader-blonde', 30000 )
+
         // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'floppy');
+        delayedAdd1( 'floppy', 40000 )
+
         // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'eye-fly');
+        delayedAdd1( 'eye-fly', 50000 )
+
         this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'blue-angel');
 
         this.ship2 = new Asteroid(this, config.width/2, config.height/2);
+        
         // this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus');
+        delayedAddVirus( 'virus', 18000 )
+        
         // this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'hatbot-jetpack');
+        delayedAddVirus( 'hatbot-jetpack', 27000 )
+
         // this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus-v2');
+        delayedAddVirus( 'virus-v2', 36000 )
+        
         this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'uniblinky');
+        
         this.sentinel = new Sentinel( this, -587, 35 );
 
-        this.seductress = new Seductress( this, -787, 0 );
+        // this.seductress = new Seductress( this, -787, 0 );
 
         this.enemies = this.physics.add.group();
         this.enemies.add(this.ship1);
         this.enemies.add(this.ship2);
         this.enemies.add(this.virus);
 
-        // this.ship1.play('ufo_anim');
+        // this.ship1.play('ufo.default');
         // this.ship1.play('hatbot_gunner.default');
         // this.ship1.play('alien_skull.default');
         // this.ship1.play('mouthman.default');
@@ -131,7 +181,7 @@ export class Scene2 extends Phaser.Scene {
         this.ship1.play('blue_angel.default');
 
         this.ship2.play('asteroid_anim');
-        // this.virus.play('virus_anim');
+        // this.virus.play('virus.default');
         // this.virus.play('hatbot_jetpack.default');
         // this.virus.play('virus_v2.default');
         this.virus.play('uniblinky.default');
@@ -178,7 +228,7 @@ export class Scene2 extends Phaser.Scene {
         this.physics.add.overlap(this.projectiles, this.enemies, this.hitEnemy, null, this);
 
         this.physics.add.overlap(this.sentinel, this.projectiles, this.sentinel.damage, null, this.sentinel);
-        this.physics.add.overlap(this.seductress, this.projectiles, this.seductress.damage, null, this.seductress);
+        // this.physics.add.overlap(this.seductress, this.projectiles, this.seductress.damage, null, this.seductress);
     }
 
     // //  loop which runs continuously
