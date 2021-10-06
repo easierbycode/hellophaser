@@ -84,6 +84,16 @@ export class Scene1 extends Phaser.Scene {
             frameHeight: 32
         });
 
+        this.load.spritesheet('bombarossa', require('../assets/spritesheets/bombarossa.png'), {
+            frameWidth: 20,
+            frameHeight: 16
+        });
+
+        this.load.spritesheet('bombarossa-explosion', require('../assets/spritesheets/bombarossa-explosion.png'), {
+            frameWidth: 47,
+            frameHeight: 47
+        });
+
         this.load.spritesheet('ufo-explosion', require('../assets/spritesheets/ufo-explosion.png'), {
             frameWidth: 32,
             frameHeight: 30
@@ -122,6 +132,11 @@ export class Scene1 extends Phaser.Scene {
         this.load.spritesheet('clown-balloons', require('../assets/spritesheets/clown-balloons.png'), {
             frameWidth: 32,
             frameHeight: 63
+        });
+
+        this.load.spritesheet('cy-brain', require('../assets/spritesheets/cy-brain.png'), {
+            frameWidth: 48,
+            frameHeight: 48
         });
 
         this.load.spritesheet('explosion', require('../assets/spritesheets/explosion.png'), {
@@ -266,6 +281,20 @@ export class Scene1 extends Phaser.Scene {
         });
 
         this.anims.create({
+            key: 'bombarossa.default',
+            frames: this.anims.generateFrameNumbers('bombarossa'),
+            frameRate: 4,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'bombarossa_explosion.default',
+            frames: this.anims.generateFrameNumbers('bombarossa-explosion'),
+            frameRate: 24,
+            hideOnComplete: true
+        });
+
+        this.anims.create({
             key: 'blue_angel.default',
             frames: [
                 {key:'blue-angel', frame:0},
@@ -308,6 +337,16 @@ export class Scene1 extends Phaser.Scene {
                 {key:'clown-balloons', frame:3}
             ],
             frameRate: 8,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'cy_brain.default',
+            frames: this.anims.generateFrameNumbers('cy-brain', {
+                start: 0,
+                end: 1
+            }),
+            frameRate: 4,
             repeat: -1
         });
 

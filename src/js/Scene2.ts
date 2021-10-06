@@ -13,6 +13,7 @@ import { Lincoln } from './lincoln';
 import { EyeFlyExplosion } from './eye-fly-explosion';
 import { UniBlinkyExplosion } from './uniblinky-explosion';
 import { Seductress } from './seductress';
+import { BombarossaExplosion } from './bombarossa-explosion';
 
 
 export class Scene2 extends Phaser.Scene {
@@ -147,6 +148,8 @@ export class Scene2 extends Phaser.Scene {
         // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'eye-fly');
         delayedAdd1( 'eye-fly', 50000 )
 
+        delayedAdd1( 'alien-skull', 60000 )
+
         this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'blue-angel');
 
         this.ship2 = new Asteroid(this, config.width/2, config.height/2);
@@ -159,31 +162,28 @@ export class Scene2 extends Phaser.Scene {
 
         // this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus-v2');
         delayedAddVirus( 'virus-v2', 36000 )
+
+        delayedAddVirus( 'cy-brain', 45000 )
+
+        delayedAddVirus( 'bombarossa', 54000 )
         
         this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'uniblinky');
         
         this.sentinel = new Sentinel( this, -587, 35 );
 
-        this.seductress = new Seductress( this, -2500, 0 );
+        this.seductress = new Seductress( this, -3000, 0 );
 
         this.enemies = this.physics.add.group();
         this.enemies.add(this.ship1);
         this.enemies.add(this.ship2);
         this.enemies.add(this.virus);
 
-        // this.ship1.play('ufo.default');
         // this.ship1.play('hatbot_gunner.default');
-        // this.ship1.play('alien_skull.default');
         // this.ship1.play('mouthman.default');
-        // this.ship1.play('cheerleader_blonde.default');
-        // this.ship1.play('floppy.default');
-        // this.ship1.play('eye_fly.default');
         this.ship1.play('blue_angel.default');
 
         this.ship2.play('asteroid_anim');
-        // this.virus.play('virus.default');
-        // this.virus.play('hatbot_jetpack.default');
-        // this.virus.play('virus_v2.default');
+
         this.virus.play('uniblinky.default');
 
         this.powerUps = this.physics.add.group();
@@ -276,6 +276,10 @@ export class Scene2 extends Phaser.Scene {
             }
             case "eye-fly": { 
                 var explosion = new EyeFlyExplosion( this, enemy.x, enemy.y );
+                break; 
+            }
+            case "bombarossa": { 
+                var explosion = new BombarossaExplosion( this, enemy.x, enemy.y );
                 break; 
             }
             default: { 
