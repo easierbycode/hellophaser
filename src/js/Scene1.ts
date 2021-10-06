@@ -559,21 +559,21 @@ export class Scene1 extends Phaser.Scene {
             yoyo: true
         });
 
-        // this.anims.create({
-        //     key: 'parachute',
-        //     frames: this.anims.generateFrameNumbers( 'human' ),
-        //     frameRate: 1,
-        //     repeat: -1
-        // });
         this.anims.create({
             key: 'parachute',
-            frames: this.anims.generateFrameNumbers( 'fairy', {
-                start: 0,
-                end: 3
-            }),
+            frames: this.anims.generateFrameNumbers( 'human' ),
             frameRate: 1,
             repeat: -1
         });
+        // this.anims.create({
+        //     key: 'parachute',
+        //     frames: this.anims.generateFrameNumbers( 'fairy', {
+        //         start: 0,
+        //         end: 3
+        //     }),
+        //     frameRate: 1,
+        //     repeat: -1
+        // });
 
         this.anims.create({
             key: 'cyborg-rider',

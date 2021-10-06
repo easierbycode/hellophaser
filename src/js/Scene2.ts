@@ -164,7 +164,7 @@ export class Scene2 extends Phaser.Scene {
         
         this.sentinel = new Sentinel( this, -587, 35 );
 
-        // this.seductress = new Seductress( this, -787, 0 );
+        this.seductress = new Seductress( this, -2500, 0 );
 
         this.enemies = this.physics.add.group();
         this.enemies.add(this.ship1);
@@ -228,7 +228,7 @@ export class Scene2 extends Phaser.Scene {
         this.physics.add.overlap(this.projectiles, this.enemies, this.hitEnemy, null, this);
 
         this.physics.add.overlap(this.sentinel, this.projectiles, this.sentinel.damage, null, this.sentinel);
-        // this.physics.add.overlap(this.seductress, this.projectiles, this.seductress.damage, null, this.seductress);
+        this.physics.add.overlap(this.seductress, this.projectiles, this.seductress.damage, null, this.seductress);
     }
 
     // //  loop which runs continuously

@@ -18,7 +18,12 @@ export class Seductress extends Phaser.GameObjects.Sprite {
 
         this.health = 20;
 
-        this.on('animationcomplete-seductress.morph', () => this.play( 'seductress.stand' ))
+        this.on('animationcomplete-seductress.morph', () => {
+            this.play( 'seductress.stand' )
+            this.scene.ship1.destroy();
+            this.scene.ship2.destroy();
+            this.scene.virus.destroy();
+        })
         this.on('animationcomplete-seductress.stand', () => this.play( 'seductress.launch' ))
         this.on('animationcomplete-seductress.launch', () => this.play( 'seductress.fly' ))
     }
