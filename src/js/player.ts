@@ -126,7 +126,7 @@ export class Player extends Phaser.GameObjects.Sprite {
 
             this.emitter.setVisible( false );
 
-            this.alpha = 0.5;
+            this.alpha = 0.25;
 
             navigator.vibrate(Infinity);
 
@@ -157,8 +157,9 @@ export class Player extends Phaser.GameObjects.Sprite {
             ease: 'Power1',
             duration: 1500,
             repeat: 0,
+            alpha: 1,
             onComplete: function() {
-                this.alpha = 1;
+                // this.alpha = 1;
                 this.emitter.setVisible( true );
             },
             callbackScope: this

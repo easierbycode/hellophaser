@@ -237,7 +237,7 @@ export class Scene2 extends Phaser.Scene {
         this.moveShip(this.ship2, 2);
         this.moveShip(this.virus, 3);
 
-        if (this.player.alpha == 1) {
+        if (this.player.alpha >= 0.3) {
             this.player.movePlayerManager();
 
             if (this.input.activePointer.isDown || Phaser.Input.Keyboard.JustDown(this.spacebar)) {
