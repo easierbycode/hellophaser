@@ -34,6 +34,11 @@ export class Scene1 extends Phaser.Scene {
             frameHeight: 142
         });
 
+        this.load.spritesheet( 'hatbot' , require('../assets/spritesheets/hatbot.png'), {
+            frameWidth: 15,
+            frameHeight: 10
+        });
+        
         this.load.spritesheet( 'hatbot-gunner' , require('../assets/spritesheets/hatbot-gunner.png'), {
             frameWidth: 32,
             frameHeight: 42
@@ -92,6 +97,11 @@ export class Scene1 extends Phaser.Scene {
         this.load.spritesheet('bombarossa-explosion', require('../assets/spritesheets/bombarossa-explosion.png'), {
             frameWidth: 47,
             frameHeight: 47
+        });
+
+        this.load.spritesheet('goblin', require('../assets/spritesheets/goblin.png'), {
+            frameWidth: 16,
+            frameHeight: 16
         });
 
         this.load.spritesheet('ufo-explosion', require('../assets/spritesheets/ufo-explosion.png'), {
@@ -391,6 +401,20 @@ export class Scene1 extends Phaser.Scene {
             key: 'floppy.default',
             frames: this.anims.generateFrameNumbers('floppy'),
             frameRate: 12,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'goblin.default',
+            frames: this.anims.generateFrameNumbers('goblin'),
+            frameRate: 4,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'hatbot.default',
+            frames: this.anims.generateFrameNames('hatbot'),
+            frameRate: 4,
             repeat: -1
         });
 

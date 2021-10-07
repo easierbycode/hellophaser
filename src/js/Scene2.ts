@@ -153,14 +153,16 @@ export class Scene2 extends Phaser.Scene {
         // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'eye-fly');
         delayedAdd1( 'eye-fly', 50000 )
 
-        delayedAdd1( 'alien-skull', 60000 )
+        delayedAdd1( 'goblin', 60000 )
+        
+        delayedAdd1( 'alien-skull', 70000 )
 
         this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'blue-angel');
 
         this.ship2 = new Asteroid(this, config.width/2, config.height/2);
         
         // this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus');
-        delayedAddVirus( 'virus', 18000 )
+        delayedAddVirus( 'hatbot', 18000 )
         
         // this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'hatbot-jetpack');
         delayedAddVirus( 'hatbot-jetpack', 27000 )
@@ -173,6 +175,8 @@ export class Scene2 extends Phaser.Scene {
         delayedAddVirus( 'bombarossa', 54000 )
 
         delayedAddVirus( 'botterfly', 63000 )
+        
+        delayedAddVirus( 'virus', 72000 )
 
         
         this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'uniblinky');
@@ -181,7 +185,7 @@ export class Scene2 extends Phaser.Scene {
         
 
 
-        this.seductress = new Seductress( this, -3150, 0 );
+        this.seductress = new Seductress( this, -3600, 0 );
 
         this.enemies = this.physics.add.group();
         this.enemies.add(this.ship1);

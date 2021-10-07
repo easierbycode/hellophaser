@@ -1,10 +1,15 @@
 NOW
 ===
-- on title screen, clicking special unlocks secret ship (EvaCola)
+hatbot gunner baddie
 
 
 LATER
 =====
+- partner - fairy
+  - uses weapon plugin
+- seductress flies in on cyborg-rider
+- evil Link (on cyborg-rider)
+- on title screen, clicking special unlocks secret ship (EvaCola)
 - add fun human types
   - unlock human w/ ship.  i.e. EvaCola ship unlocks cool-cokecan "human"
 - exploding goat baddie
