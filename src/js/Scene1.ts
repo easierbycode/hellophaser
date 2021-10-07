@@ -124,6 +124,15 @@ export class Scene1 extends Phaser.Scene {
             frameHeight: 55
         });
 
+        this.load.spritesheet('botterfly', require('../assets/spritesheets/botterfly.png'), {
+            frameWidth: 64,
+            frameHeight: 32
+        });
+        this.load.spritesheet('botterfly-explosion', require('../assets/spritesheets/botterfly-explosion.png'), {
+            frameWidth: 38,
+            frameHeight: 40
+        });
+
         this.load.spritesheet('cheerleader-blonde', require('../assets/spritesheets/cheerleader-blonde.png'), {
             frameWidth: 48,
             frameHeight: 35
@@ -290,6 +299,20 @@ export class Scene1 extends Phaser.Scene {
         this.anims.create({
             key: 'bombarossa_explosion.default',
             frames: this.anims.generateFrameNumbers('bombarossa-explosion'),
+            frameRate: 24,
+            hideOnComplete: true
+        });
+
+        this.anims.create({
+            key: 'botterfly.default',
+            frames: this.anims.generateFrameNumbers('botterfly'),
+            frameRate: 4,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'botterfly_explosion.default',
+            frames: this.anims.generateFrameNumbers('botterfly-explosion'),
             frameRate: 24,
             hideOnComplete: true
         });

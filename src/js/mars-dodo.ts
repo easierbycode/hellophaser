@@ -3,12 +3,10 @@ import { Explosion } from './explosion.ts';
 import { Human } from './human';
 
 
-export class Sentinel extends Phaser.GameObjects.Sprite {
+export class MarsDodo extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y) {
         
-        super( scene, x, y, 'sentinel' );
-        // super( scene, x, y, 'monkey-flying-carpet' );
-        // super( scene, x, y, 'ronald' );
+        super( scene, x, y, 'mars-dodo' );
         
         this.scene = scene;
         
@@ -16,10 +14,7 @@ export class Sentinel extends Phaser.GameObjects.Sprite {
         scene.physics.world.enableBody( this );
         this.body.velocity.x = 50;
 
-        // this.play( 'drop_cargo' );
-
-        // this.play( 'monkey_flying_carpet.default' );
-        // this.play( 'ronald.default' );
+        this.play( 'mars_dodo.default' );
 
         this.health = 10;
     }
@@ -29,14 +24,9 @@ export class Sentinel extends Phaser.GameObjects.Sprite {
         let damagePoints = enemy.damagePoints || 1;
         this.health -= damagePoints;
         if ( this.health == 0 ) {
-
-            this.emit( 'emit_death' );
-
             this.body.velocity.x = 0;
             
-            // this.play( 'monkey_flying_carpet.hit' );
-
-            this.play( 'drop_cargo' );
+            // this.play( 'mars_dodo.hit' );
             
             setTimeout( () => {
                 let {x, y} = this.getTopLeft();

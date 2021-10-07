@@ -14,6 +14,11 @@ import { EyeFlyExplosion } from './eye-fly-explosion';
 import { UniBlinkyExplosion } from './uniblinky-explosion';
 import { Seductress } from './seductress';
 import { BombarossaExplosion } from './bombarossa-explosion';
+import { BotterflyExplosion } from './botterfly-explosion';
+import { ClownBalloons } from './clown-balloons';
+import { MarsDodo } from './mars-dodo';
+import { MonkeyFlyingCarpet } from './monkey-flying-carpet';
+import { Ronald } from './ronald';
 
 
 export class Scene2 extends Phaser.Scene {
@@ -166,17 +171,44 @@ export class Scene2 extends Phaser.Scene {
         delayedAddVirus( 'cy-brain', 45000 )
 
         delayedAddVirus( 'bombarossa', 54000 )
+
+        delayedAddVirus( 'botterfly', 63000 )
+
         
         this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'uniblinky');
+     
+    
         
-        this.sentinel = new Sentinel( this, -587, 35 );
 
-        this.seductress = new Seductress( this, -3000, 0 );
+
+        this.seductress = new Seductress( this, -3150, 0 );
 
         this.enemies = this.physics.add.group();
         this.enemies.add(this.ship1);
         this.enemies.add(this.ship2);
         this.enemies.add(this.virus);
+
+
+
+        this.sentinels = this.add.group();
+
+        this.sentinel = new Sentinel( this, -587, 35 );
+        this.sentinels.add( this.sentinel );
+
+        this.sentinel2 = new ClownBalloons( this, -900, 63 );
+        this.sentinels.add( this.sentinel2 );
+
+        this.sentinel3 = new MarsDodo( this, -1200, 44 );
+        this.sentinels.add( this.sentinel3 );
+
+        this.sentinel4 = new MonkeyFlyingCarpet( this, -1500, 29 );
+        this.sentinels.add( this.sentinel4 );
+
+        this.sentinel5 = new Ronald( this, -1800, 47 );
+        this.sentinels.add( this.sentinel5 );
+
+
+
 
         // this.ship1.play('hatbot_gunner.default');
         // this.ship1.play('mouthman.default');
@@ -227,7 +259,10 @@ export class Scene2 extends Phaser.Scene {
 
         this.physics.add.overlap(this.projectiles, this.enemies, this.hitEnemy, null, this);
 
-        this.physics.add.overlap(this.sentinel, this.projectiles, this.sentinel.damage, null, this.sentinel);
+        // this.physics.add.overlap(this.sentinel, this.projectiles, this.sentinel.damage, null, this.sentinel);
+        this.physics.add.overlap(this.sentinels, this.projectiles, (s, p) => {
+            s.damage( s, p );
+        });
         this.physics.add.overlap(this.seductress, this.projectiles, this.seductress.damage, null, this.seductress);
     }
 
@@ -280,6 +315,10 @@ export class Scene2 extends Phaser.Scene {
             }
             case "bombarossa": { 
                 var explosion = new BombarossaExplosion( this, enemy.x, enemy.y );
+                break; 
+            }
+            case "botterfly": { 
+                var explosion = new BotterflyExplosion( this, enemy.x, enemy.y );
                 break; 
             }
             default: { 
