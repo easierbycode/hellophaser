@@ -19,6 +19,8 @@ import { ClownBalloons } from './clown-balloons';
 import { MarsDodo } from './mars-dodo';
 import { MonkeyFlyingCarpet } from './monkey-flying-carpet';
 import { Ronald } from './ronald';
+import { HatbotGunner } from './hatbot-gunner';
+import { AlienSkull } from './alien-skull';
 
 
 export class Scene2 extends Phaser.Scene {
@@ -94,10 +96,15 @@ export class Scene2 extends Phaser.Scene {
                 delay,
                 callback: () => {
                     this.ship1.destroy();
-                    
-                    this.ship1 = this.add.sprite( config.width/2 - 50, config.height/2, spriteKey );
-                    this.ship1.play( `${spriteKey.replace('-', '_')}.default` );
-                    
+
+                    if (spriteKey == 'hatbot-gunner' ) {
+                        this.ship1 = new HatbotGunner( this, config.width/2 - 50, config.height/2 );
+                    } else if (spriteKey == 'alien-skull' ) {
+                        this.ship1 = new AlienSkull( this, config.width/2 - 50, config.height/2 );
+                    } else {
+                        this.ship1 = this.add.sprite( config.width/2 - 50, config.height/2, spriteKey );
+                        this.ship1.play( `${spriteKey.replace('-', '_')}.default` );
+                    }
                     this.enemies.add( this.ship1 );
                     
                     this.resetShipPos( this.ship1 );
@@ -121,14 +128,8 @@ export class Scene2 extends Phaser.Scene {
             })
         }
 
-        // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'ufo');
         delayedAdd1( 'ufo', 10000 )
 
-        // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'hatbot-gunner');
-        // this.time.addEvent({
-        //     delay: 2500,
-        //     callback: () => this.ship1.play('hatbot_gunner.aim_cannon')
-        // })
         // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'alien-skull');
         // this.time.addEvent({
         //     delay: 8000,
@@ -141,33 +142,28 @@ export class Scene2 extends Phaser.Scene {
         //     })
         // })
 
-        // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'mouthman');
         delayedAdd1( 'mouthman', 20000 )
 
-        // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'cheerleader-blonde');
         delayedAdd1( 'cheerleader-blonde', 30000 )
 
-        // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'floppy');
         delayedAdd1( 'floppy', 40000 )
 
-        // this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'eye-fly');
         delayedAdd1( 'eye-fly', 50000 )
 
         delayedAdd1( 'goblin', 60000 )
         
         delayedAdd1( 'alien-skull', 70000 )
 
+        delayedAdd1( 'hatbot-gunner', 80000 )
+
         this.ship1 = this.add.sprite(config.width/2 - 50, config.height/2, 'blue-angel');
 
         this.ship2 = new Asteroid(this, config.width/2, config.height/2);
         
-        // this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus');
         delayedAddVirus( 'hatbot', 18000 )
         
-        // this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'hatbot-jetpack');
         delayedAddVirus( 'hatbot-jetpack', 27000 )
 
-        // this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'virus-v2');
         delayedAddVirus( 'virus-v2', 36000 )
 
         delayedAddVirus( 'cy-brain', 45000 )
@@ -180,19 +176,13 @@ export class Scene2 extends Phaser.Scene {
 
         
         this.virus = this.add.sprite(config.width/2 + 50, config.height/2, 'uniblinky');
-     
-    
-        
 
-
-        this.seductress = new Seductress( this, -3600, 0 );
+        this.seductress = new Seductress( this, -3850, 0 );
 
         this.enemies = this.physics.add.group();
         this.enemies.add(this.ship1);
         this.enemies.add(this.ship2);
         this.enemies.add(this.virus);
-
-
 
         this.sentinels = this.add.group();
 
@@ -211,11 +201,6 @@ export class Scene2 extends Phaser.Scene {
         this.sentinel5 = new Ronald( this, -1800, 47 );
         this.sentinels.add( this.sentinel5 );
 
-
-
-
-        // this.ship1.play('hatbot_gunner.default');
-        // this.ship1.play('mouthman.default');
         this.ship1.play('blue_angel.default');
 
         this.ship2.play('asteroid_anim');
@@ -263,10 +248,10 @@ export class Scene2 extends Phaser.Scene {
 
         this.physics.add.overlap(this.projectiles, this.enemies, this.hitEnemy, null, this);
 
-        // this.physics.add.overlap(this.sentinel, this.projectiles, this.sentinel.damage, null, this.sentinel);
         this.physics.add.overlap(this.sentinels, this.projectiles, (s, p) => {
             s.damage( s, p );
         });
+        
         this.physics.add.overlap(this.seductress, this.projectiles, this.seductress.damage, null, this.seductress);
     }
 
