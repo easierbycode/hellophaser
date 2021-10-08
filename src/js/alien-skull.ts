@@ -38,7 +38,7 @@ export class AlienSkull extends Phaser.GameObjects.Sprite {
         })
     }
 
-    damage( hatbotGunner, enemy ) {
+    damage( alienSkull, enemy ) {
         enemy.destroy();
         let damagePoints = enemy.damagePoints || 1;
         this.health -= damagePoints;
