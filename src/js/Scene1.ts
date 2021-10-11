@@ -29,6 +29,11 @@ export class Scene1 extends Phaser.Scene {
         
         this.load.image( 'star', require('../assets/images/star.png'));
 
+        this.load.spritesheet( 'genie' , require('../assets/spritesheets/genie.png'), {
+            frameWidth: 76,
+            frameHeight: 58
+        });
+
         this.load.spritesheet( 'ship-boy', require('../assets/spritesheets/ship-boy.png'), {
             frameWidth: 117,
             frameHeight: 142
@@ -52,6 +57,41 @@ export class Scene1 extends Phaser.Scene {
         this.load.spritesheet('human', require('../assets/spritesheets/human.png'), {
             frameWidth: 16,
             frameHeight: 27
+        });
+
+        this.load.spritesheet('joker', require('../assets/spritesheets/joker.png'), {
+            frameWidth: 38,
+            frameHeight: 40
+        });
+
+        this.load.spritesheet('joker-bag', require('../assets/spritesheets/joker-bag.png'), {
+            frameWidth: 36,
+            frameHeight: 42
+        });
+
+        this.load.spritesheet('joker-bag-dialog', require('../assets/spritesheets/joker-bag-dialog.png'), {
+            frameWidth: 98,
+            frameHeight: 29
+        });
+
+        this.load.spritesheet('joker-ball', require('../assets/spritesheets/joker-ball.png'), {
+            frameWidth: 16,
+            frameHeight: 15
+        });
+
+        this.load.spritesheet('joker-ball-shockwave-1', require('../assets/spritesheets/joker-ball-shockwave-1.png'), {
+            frameWidth: 51,
+            frameHeight: 26
+        });
+
+        this.load.spritesheet('joker-ball-shockwave-2-l', require('../assets/spritesheets/joker-ball-shockwave-2-l.png'), {
+            frameWidth: 32,
+            frameHeight: 33
+        });
+
+        this.load.spritesheet('joker-ball-shockwave-2-r', require('../assets/spritesheets/joker-ball-shockwave-2-r.png'), {
+            frameWidth: 35,
+            frameHeight: 32
         });
 
         this.load.spritesheet('lincoln', require('../assets/spritesheets/lincoln.png'), {
