@@ -97,7 +97,10 @@ export class Scene2 extends Phaser.Scene {
                 callback: () => {
                     this.ship1.destroy();
 
-                    if (spriteKey == 'hatbot-gunner' ) {
+                    if (spriteKey == 'goblin') {
+                        this.ship1 = this.add.sprite( config.width/2 - 50, config.height/2, spriteKey ).setScale( 2 );
+                        this.ship1.play( `${spriteKey.replace('-', '_')}.default` );
+                    } else if (spriteKey == 'hatbot-gunner' ) {
                         this.ship1 = new HatbotGunner( this, config.width/2 - 50, config.height/2 );
                     } else if (spriteKey == 'alien-skull' ) {
                         this.ship1 = new AlienSkull( this, config.width/2 - 50, config.height/2 );
