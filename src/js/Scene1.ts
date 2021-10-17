@@ -119,6 +119,11 @@ export class Scene1 extends Phaser.Scene {
             frameHeight: 30
         });
 
+        this.load.spritesheet('voxel-wizrobe', require('../assets/spritesheets/voxel-wizrobe.png'), {
+            frameWidth: 223,
+            frameHeight: 223
+        });
+
         this.load.spritesheet('alien-skull', require('../assets/spritesheets/alien-skull.png'), {
             frameWidth: 32,
             frameHeight: 32
