@@ -119,6 +119,16 @@ export class Scene1 extends Phaser.Scene {
             frameHeight: 30
         });
 
+        this.load.spritesheet('uniblinky', require('../assets/spritesheets/voxel-uniblinky.png'), {
+            frameWidth: 230,
+            frameHeight: 232
+        });
+
+        this.load.spritesheet('uniblinky-particles', require('../assets/spritesheets/voxel-uniblinky-particles.png'), {
+            frameWidth: 17,
+            frameHeight: 16
+        });
+
         this.load.spritesheet('alien-skull', require('../assets/spritesheets/alien-skull.png'), {
             frameWidth: 32,
             frameHeight: 32
