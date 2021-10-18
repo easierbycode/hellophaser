@@ -120,13 +120,13 @@ export class Scene1 extends Phaser.Scene {
         });
 
         this.load.spritesheet('voxel-wizrobe', require('../assets/spritesheets/voxel-wizrobe.png'), {
-            frameWidth: 223,
-            frameHeight: 223
+            frameWidth: 253,
+            frameHeight: 222
         });
 
         this.load.spritesheet('voxel-wizrobe-particles', require('../assets/spritesheets/voxel-wizrobe-particles.png'), {
-            frameWidth: 15,
-            frameHeight: 15
+            frameWidth: 16,
+            frameHeight: 16
         });
 
         this.load.spritesheet('alien-skull', require('../assets/spritesheets/alien-skull.png'), {
