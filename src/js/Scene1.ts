@@ -119,6 +119,7 @@ export class Scene1 extends Phaser.Scene {
             frameHeight: 30
         });
 
+<<<<<<< HEAD
         this.load.spritesheet('uniblinky', require('../assets/spritesheets/voxel-uniblinky.png'), {
             frameWidth: 230,
             frameHeight: 232
@@ -126,6 +127,25 @@ export class Scene1 extends Phaser.Scene {
 
         this.load.spritesheet('uniblinky-particles', require('../assets/spritesheets/voxel-uniblinky-particles.png'), {
             frameWidth: 17,
+=======
+        this.load.spritesheet('voxel-virus', require('../assets/spritesheets/voxel-virus.png'), {
+            frameWidth: 218,
+            frameHeight: 221
+        });
+
+        this.load.spritesheet('voxel-virus-particles', require('../assets/spritesheets/voxel-virus-particles.png'), {
+            frameWidth: 33,
+            frameHeight: 35
+        });
+
+        this.load.spritesheet('voxel-wizrobe', require('../assets/spritesheets/voxel-wizrobe.png'), {
+            frameWidth: 253,
+            frameHeight: 222
+        });
+
+        this.load.spritesheet('voxel-wizrobe-particles', require('../assets/spritesheets/voxel-wizrobe-particles.png'), {
+            frameWidth: 16,
+>>>>>>> add9c4aa8004f5220c345c653e1c3fc6885182aa
             frameHeight: 16
         });
 
