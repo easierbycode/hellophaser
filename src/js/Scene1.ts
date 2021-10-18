@@ -119,6 +119,16 @@ export class Scene1 extends Phaser.Scene {
             frameHeight: 30
         });
 
+        this.load.spritesheet('voxel-virus', require('../assets/spritesheets/voxel-virus.png'), {
+            frameWidth: 218,
+            frameHeight: 221
+        });
+
+        this.load.spritesheet('voxel-virus-particles', require('../assets/spritesheets/voxel-virus-particles.png'), {
+            frameWidth: 33,
+            frameHeight: 35
+        });
+
         this.load.spritesheet('voxel-wizrobe', require('../assets/spritesheets/voxel-wizrobe.png'), {
             frameWidth: 253,
             frameHeight: 222
