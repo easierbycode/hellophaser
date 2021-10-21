@@ -1,12 +1,11 @@
 NOW
 ===
-hatbot gunner baddie
+- partner - joker
+  - uses weapon plugin
 
 
 LATER
 =====
-- partner - fairy
-  - uses weapon plugin
 - seductress flies in on cyborg-rider
 - evil Link (on cyborg-rider)
 - on title screen, clicking special unlocks secret ship (EvaCola)

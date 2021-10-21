@@ -39,6 +39,16 @@ export class Scene1 extends Phaser.Scene {
             frameHeight: 142
         });
 
+        this.load.spritesheet( 'goku', require( '../assets/spritesheets/goku.png' ), {
+            frameWidth: 25,
+            frameHeight: 31
+        });
+
+        this.load.spritesheet( 'goku-fireball', require( '../assets/spritesheets/goku-fireball.png' ), {
+            frameWidth: 12,
+            frameHeight: 11
+        });
+
         this.load.spritesheet( 'hatbot' , require('../assets/spritesheets/hatbot.png'), {
             frameWidth: 15,
             frameHeight: 10
