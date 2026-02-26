@@ -40,7 +40,7 @@ export class Menu extends Phaser.Scene {
         // DRJ- debug
         this.aGrid.placeAtIndex( 60, startBtn );
         startBtn.setInteractive();
-        startBtn.once('pointerdown', () => this.scene.start('playGame'));
+        startBtn.once('pointerdown', () => this.scene.start('modeSelect'));
 
         // options button
         let {x,y} = startBtn.getBottomCenter();

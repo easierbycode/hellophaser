@@ -1,5 +1,6 @@
 import {Menu} from './Menu.ts';
 import {Scene2} from './Scene2.ts';
+import {ModeSelect} from './ModeSelect';
 import phaserJuice from './phaserJuicePlugin.min.js';
 
 
@@ -11,7 +12,7 @@ export var config = {
             { key: 'phaserJuice', plugin: phaserJuice, mapping: 'juice' }
         ]
     },
-    scene: [Menu, Scene2],
+    scene: [Menu, ModeSelect, Scene2],
     pixelArt: true,
     scale: {
         mode: Phaser.Scale.FIT,
