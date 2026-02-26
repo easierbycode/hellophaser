@@ -1,6 +1,5 @@
 import {Beam} from './beam.ts';
 import {config} from './config.ts';
-import {gameSettings} from './game-settings.ts';
 import {Explosion} from './explosion.ts'
 import {VirusExplosion} from './virus-explosion.ts'
 import Phaser from 'phaser';

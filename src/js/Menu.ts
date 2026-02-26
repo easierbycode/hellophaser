@@ -31,6 +31,12 @@ export class Menu extends Phaser.Scene {
     public create(): void {
         this.scene1.create.call(this);
 
+        this.input.once('pointerdown', () => {
+            if (!this.scale.isFullscreen) {
+                this.scale.startFullscreen();
+            }
+        });
+
         this.makeAlignGrid(11, 11);
         // DRJ- debug
         // this.aGrid.showNumbers();
