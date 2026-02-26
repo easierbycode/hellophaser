@@ -1,6 +1,7 @@
 import {Beam} from './beam.ts';
 import {config} from './config.ts';
 import {gameSettings} from './game-settings.ts';
+import musicTrack from '../assets/sounds/title-song-vbr (Mastered with Thunder at 100pct).mp3';
 import {Explosion} from './explosion.ts'
 import {VirusExplosion} from './virus-explosion.ts'
 import Phaser from 'phaser';
@@ -85,9 +86,19 @@ export class Scene2 extends Phaser.Scene {
             delay: 0
         };
 
-        this.music = this.sound.add('music', musicConfig);
-
-        this.music.play();
+        if (gameSettings.playMusic) {
+            if (!this.cache.audio.exists('music')) {
+                this.load.audio('music', musicTrack);
+                this.load.once(Phaser.Loader.Events.COMPLETE, () => {
+                    this.music = this.sound.add('music', musicConfig);
+                    this.music.play();
+                });
+                this.load.start();
+            } else {
+                this.music = this.sound.add('music', musicConfig);
+                this.music.play();
+            }
+        }
 
         this.sound.pauseOnBlur = false;
 
