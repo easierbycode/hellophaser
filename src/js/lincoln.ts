@@ -76,7 +76,9 @@ export class Lincoln extends BaseEntity {
             return this.scene.juice.spinXTween.restart();
         }
         
-        this.scene.music.setRate( 1.5 );
+        if (this.scene.music) {
+            this.scene.music.setRate( 1.5 );
+        }
         this.boosting = true;
         this.scene.stars.setSpeedY( 425 );
         this.scene.stars.frequency = 50;
@@ -87,7 +89,9 @@ export class Lincoln extends BaseEntity {
             duration: 250,
             repeat: 16,
             onComplete: () => {
-                this.scene.music.setRate( 1 );
+                if (this.scene.music) {
+                    this.scene.music.setRate( 1 );
+                }
 
                 this.scene.stars.setSpeedY({
                     min : 60,
